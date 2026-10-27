@@ -74,7 +74,7 @@ export function CheckoutForm({ cart, methods, testMode }: Props) {
         e.preventDefault();
         submit(e.currentTarget);
       }}
-      className="grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
+      className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
     >
       <div className="space-y-12">
         {testMode && (

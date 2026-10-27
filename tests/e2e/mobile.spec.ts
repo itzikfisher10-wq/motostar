@@ -2,7 +2,9 @@ import { expect, test } from "@playwright/test";
 import { E2E } from "./fixtures/constants";
 
 /** Phone layout: no sideways scrolling, sticky buy bar, navigation drawer. Runs in the "mobile" project. */
-const PAGES = ["/", "/categories/replacement-parts", `/products/${encodeURIComponent(E2E.variantProductSlug)}`, "/vehicles", "/cart", "/checkout"];
+// The 6-image product guards the gallery thumbnails: they once pushed the page 146px sideways.
+const MANY_IMAGES_PRODUCT = "מנגנון-משקף-חיצוני-לקסדת-arai-3-4-sz-r-vas";
+const PAGES = ["/", "/categories/replacement-parts", `/products/${encodeURIComponent(E2E.variantProductSlug)}`, `/products/${encodeURIComponent(MANY_IMAGES_PRODUCT)}`, "/vehicles", "/cart", "/checkout"];
 
 test.describe("mobile layout", () => {
   for (const path of PAGES) {

@@ -10,7 +10,7 @@ import { contentBlocks } from "@/lib/db/schema";
 
 const readers: { [K in BlockKey]: (fd: FormData) => unknown } = {
   announcement: (fd) => ({ enabled: fd.get("enabled") === "on", text: fd.get("text"), href: fd.get("href") ?? "" }),
-  araiHero: (fd) => ({ kicker: fd.get("kicker") ?? "", title: fd.get("title"), body: fd.get("body") ?? "" }),
+  araiHero: (fd) => ({ title: fd.get("title"), body: fd.get("body") ?? "" }),
 };
 
 export async function saveContentAction(key: BlockKey, _: ActionState, fd: FormData): Promise<ActionState> {

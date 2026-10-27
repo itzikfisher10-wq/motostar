@@ -23,11 +23,10 @@ export const BLOCKS = {
   },
   araiHero: {
     schema: z.object({
-      kicker: z.string().trim().max(40),
       title: z.string().trim().min(2).max(60),
       body: z.string().trim().max(300),
     }),
-    defaults: { kicker: araiHero.kicker, title: araiHero.title, body: araiHero.body },
+    defaults: { title: araiHero.title, body: araiHero.body },
   },
 } as const;
 

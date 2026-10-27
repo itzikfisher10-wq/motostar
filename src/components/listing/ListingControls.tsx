@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTransition } from "react";
-import { SORT_LABELS } from "@/features/catalog/listing-params";
+import { SORT_LABELS } from "@/features/catalog/sort-labels";
 import type { ProductSort } from "@/features/catalog/types";
 
 /**

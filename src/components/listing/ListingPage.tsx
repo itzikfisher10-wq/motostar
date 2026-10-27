@@ -40,7 +40,12 @@ export function ListingPage({ title, intro, breadcrumbs, aside, items, total, pa
           </Suspense>
         )}
         <div className="mt-8">
-          {items.length ? <ProductGrid products={items} priorityCount={4} /> : (empty ?? <p className="py-16 text-center text-steel">לא נמצאו מוצרים התואמים לסינון. נסו להסיר את אחד הסינונים.</p>)}
+          {items.length ? (
+            <>
+              <h2 className="sr-only">המוצרים</h2>
+              <ProductGrid products={items} priorityCount={4} />
+            </>
+          ) : (empty ?? <p className="py-16 text-center text-steel">לא נמצאו מוצרים התואמים לסינון. נסו להסיר את אחד הסינונים.</p>)}
         </div>
         <Pagination page={page} pageCount={pageCount} basePath={basePath} params={params} />
       </div>

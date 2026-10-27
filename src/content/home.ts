@@ -4,10 +4,9 @@
  * Docs: docs/editing-guide.md → "עמוד הבית"
  */
 export const homeHero = {
-  kicker: "חולון · חלקים, אביזרים וציוד רכיבה",
   title: "הכל לאופנוע שלך",
   /** {count} and {makes} are filled from the catalog. */
-  body: "{count} מוצרים בקטלוג: חלקי חילוף ל-{makes}, אביזרים וחלפים מקוריים לקסדות Arai. ייעוץ טלפוני ממוסכניקים.",
+  body: "חנות בחולון עם {count} מוצרים בקטלוג: חלקי חילוף ל-{makes}, אביזרים וחלפים מקוריים לקסדות Arai. ייעוץ טלפוני ממוסכניקים.",
   primaryCta: { label: "חלקים לאופנוע שלי", href: "/vehicles" },
   secondaryCta: { label: "כל הקטגוריות", href: "/categories" },
   /** Shown under the 3D helmet so it is never mistaken for a product. */

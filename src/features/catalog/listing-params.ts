@@ -33,9 +33,5 @@ export function parseListingParams(raw: RawSearchParams) {
   return { filters, params: p, isFiltered };
 }
 
-export const SORT_LABELS: Record<ProductSort, string> = {
-  featured: "מומלץ",
-  "price-asc": "מחיר: מהנמוך לגבוה",
-  "price-desc": "מחיר: מהגבוה לנמוך",
-  newest: "חדש באתר",
-};
+// Sort labels live in ./sort-labels (no zod), so client components can import them without shipping zod.
+export { SORT_LABELS } from "./sort-labels";

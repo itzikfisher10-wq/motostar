@@ -4,6 +4,7 @@ import type { CategoryNode } from "@/features/catalog/types";
 import { Container } from "@/components/ui/Container";
 import { WhatsappIcon } from "@/components/ui/icons";
 import { Wordmark } from "./Wordmark";
+import { reveal } from "@/components/motion/reveal";
 
 const INFO_LINKS = [
   { href: "/about", label: "אודות" },
@@ -37,22 +38,22 @@ export function Footer({ categories }: { categories: CategoryNode[] }) {
 
         <nav aria-label="קטגוריות">
           <h2 className="font-display text-[1.75rem]">קטגוריות</h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-fog">
+          <ul className="mt-3 space-y-0.5 text-sm text-fog">
             {categories.map((c) => (
               <li key={c.id}>
-                <Link href={`/categories/${c.slug}`} className="hover:text-paper">{c.name}</Link>
+                <Link href={`/categories/${c.slug}`} className="inline-block py-1.5 hover:text-paper">{c.name}</Link>
               </li>
             ))}
-            <li><Link href="/deals" className="hover:text-paper">מבצעים</Link></li>
+            <li><Link href="/deals" className="inline-block py-1.5 hover:text-paper">מבצעים</Link></li>
           </ul>
         </nav>
 
         <nav aria-label="מידע">
           <h2 className="font-display text-[1.75rem]">מידע</h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-fog">
+          <ul className="mt-3 space-y-0.5 text-sm text-fog">
             {INFO_LINKS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-paper">{l.label}</Link>
+                <Link href={l.href} className="inline-block py-1.5 hover:text-paper">{l.label}</Link>
               </li>
             ))}
           </ul>
@@ -62,8 +63,8 @@ export function Footer({ categories }: { categories: CategoryNode[] }) {
           <h2 className="font-display text-[1.75rem]">החנות בחולון</h2>
           <address className="mt-4 space-y-2.5 text-sm not-italic text-fog">
             <p>{site.address.street}, {site.address.city}</p>
-            <p><a href={`tel:${site.phoneE164}`} className="tabular hover:text-paper ltr-isolate">{site.phone}</a></p>
-            <p><a href={`mailto:${site.email}`} className="hover:text-paper">{site.email}</a></p>
+            <p><a href={`tel:${site.phoneE164}`} className="inline-block py-1 tabular hover:text-paper ltr-isolate">{site.phone}</a></p>
+            <p><a href={`mailto:${site.email}`} className="inline-block py-1 hover:text-paper">{site.email}</a></p>
           </address>
           <dl className="mt-5 space-y-1 text-sm text-fog">
             {site.hours.map((h) => (
@@ -76,6 +77,14 @@ export function Footer({ categories }: { categories: CategoryNode[] }) {
           <p className="mt-3 text-xs text-fog">איסוף עצמי בתיאום מראש בלבד.</p>
         </div>
       </Container>
+      {/* Closing mark: the page ends on the brand, rising into place as the footer arrives. */}
+      <div aria-hidden="true" className="overflow-hidden">
+        <Container>
+          <div {...reveal.close} className="select-none pt-2 text-center text-[clamp(4.5rem,21vw,19rem)] leading-[0.8] text-steel">
+            <Wordmark />
+          </div>
+        </Container>
+      </div>
       <div className="border-t border-line-dark">
         <Container className="flex flex-col gap-2 py-6 text-xs text-fog sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} {site.legalName}. כל הזכויות שמורות.</p>

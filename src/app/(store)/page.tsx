@@ -38,9 +38,10 @@ export default async function HomePage() {
   return (
     <>
       <HelmetHero {...homeHero} body={heroBody} />
+      {/* The store's main task comes first: parts that fit the visitor's bike. */}
+      <VehicleBand tree={vehicles} />
       <AraiExperience data={arai} />
       <AraiRail products={arai.all} />
-      <VehicleBand tree={vehicles} />
       <CategoryIndex categories={categories} />
       <ProductRail id="deals-title" title="מבצעים שרצים עכשיו" intro="מחיר מבצע מול המחיר הרגיל, כפי שמופיע בקטלוג." products={deals.items} href="/deals" hrefLabel={`לכל המבצעים (${deals.total})`} />
       <WorkshopStrip />

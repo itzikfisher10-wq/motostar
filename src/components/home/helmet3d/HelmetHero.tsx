@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { buttonClass } from "@/components/ui/Button";
+import { reveal } from "@/components/motion/reveal";
 import type { HelmetScene } from "./scene";
 
 type Props = {
-  kicker: string;
   title: string;
   body: string;
   primaryCta: { label: string; href: string };
@@ -37,7 +37,7 @@ function hasHardwareWebGL() {
   return !/swiftshader|llvmpipe|softpipe|software/i.test(renderer);
 }
 
-export function HelmetHero({ kicker, title, body, primaryCta, secondaryCta, illustrationNote }: Props) {
+export function HelmetHero({ title, body, primaryCta, secondaryCta, illustrationNote }: Props) {
   const section = useRef<HTMLElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const [ready, setReady] = useState(false);
@@ -97,14 +97,13 @@ export function HelmetHero({ kicker, title, body, primaryCta, secondaryCta, illu
   }, []);
 
   return (
-    <section ref={section} aria-labelledby="home-hero-title" className="relative bg-ink text-paper motion-safe:h-[150svh] lg:motion-safe:h-[190svh]">
+    <section ref={section} {...reveal.depthScope} aria-labelledby="home-hero-title" className="relative bg-ink text-paper motion-safe:h-[150svh] lg:motion-safe:h-[190svh]">
       <div className="sticky top-[var(--header-h,6rem)] isolate overflow-hidden">
         {/* One key light from above-left; the helmet sits in it. */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_60%_at_28%_42%,#2a2c30_0%,#0d0d0e_55%,#000_100%)]" />
+        <div aria-hidden="true" {...reveal.depthLight} className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_60%_at_28%_42%,#2a2c30_0%,#0d0d0e_55%,#000_100%)]" />
         <div className="mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1400px] items-center gap-4 px-4 pb-10 pt-8 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:px-10">
-          <div className="relative z-10 order-2 lg:order-1">
-            <p className="text-sm text-fog">{kicker}</p>
-            <h1 id="home-hero-title" className="mt-3 font-display text-display-xl motion-safe:animate-[hero-settle_1100ms_var(--ease-out-quart)_both]">
+          <div {...reveal.depthCopy} className="relative z-10 order-2 lg:order-1">
+            <h1 id="home-hero-title" className="font-display text-display-xl motion-safe:animate-[hero-settle_1100ms_var(--ease-out-quart)_both]">
               {title}
             </h1>
             <p className="mt-6 max-w-[38ch] text-lg leading-relaxed text-fog">{body}</p>

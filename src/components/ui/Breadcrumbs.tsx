@@ -10,7 +10,7 @@ export function Breadcrumbs({ items, tone = "light" }: { items: BreadcrumbItem[]
       <nav aria-label="נתיב ניווט" className={`text-sm ${muted}`}>
         <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <li>
-            <Link href="/" className="hover:underline underline-offset-4">
+            <Link href="/" className="inline-block py-1 hover:underline">
               דף הבית
             </Link>
           </li>
@@ -24,7 +24,7 @@ export function Breadcrumbs({ items, tone = "light" }: { items: BreadcrumbItem[]
                     {item.name}
                   </span>
                 ) : (
-                  <Link href={item.href} className="hover:underline underline-offset-4">
+                  <Link href={item.href} className="inline-block py-1 hover:underline">
                     {item.name}
                   </Link>
                 )}

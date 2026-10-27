@@ -30,7 +30,7 @@ export function CartPageView() {
   }
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)]">
       <div>
         {notice && <p className="mb-4 rounded-[var(--radius-control)] bg-mist px-4 py-2.5 text-sm">{notice}</p>}
         <ul className="divide-y divide-line border-y border-line" aria-busy={pending}>

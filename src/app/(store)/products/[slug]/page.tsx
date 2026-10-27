@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: Props) {
           <ProductPurchase product={product} />
         </div>
 
-        <div className="mt-20 grid gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+        <div className="mt-20 grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <div className="space-y-14">
             {descriptionHtml && (
               <section aria-labelledby="desc-title">

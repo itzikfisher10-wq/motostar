@@ -73,8 +73,7 @@ function AraiHero({ data }: { data: AraiShowcase }) {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_30%_35%,#2a2c30_0%,#0d0d0e_55%,#000_100%)]" />
       <div className="mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1400px] items-center gap-6 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:px-10 lg:pb-10">
         <div data-hero-copy className="relative z-10 order-2 lg:order-1">
-          <p className="text-sm text-fog motion-safe:animate-[hero-rise_900ms_var(--ease-out-quart)_300ms_both]">{hero.kicker}</p>
-          <h2 id="arai-hero-title" className="mt-3 font-display text-display-lg">
+          <h2 id="arai-hero-title" className="font-display text-display-lg">
             {hero.title}
           </h2>
           <p className="mt-6 max-w-[34ch] text-lg leading-relaxed text-fog motion-safe:animate-[hero-rise_1100ms_var(--ease-out-quart)_450ms_both]">{hero.body}</p>
@@ -269,7 +268,7 @@ function DetailTour({ stops }: { stops: AraiShowcase["stops"] }) {
             </ol>
             <div className="relative mt-10 min-h-[22rem]">
               {stops.map((s, i) => (
-                <div key={s.key} className={`absolute inset-0 transition-[opacity,translate] duration-500 ${active === i ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`} aria-hidden={active !== i}>
+                <div key={s.key} className={`absolute inset-0 transition-[opacity,translate] ease-[var(--ease-out-quart)] ${active === i ? "translate-y-0 opacity-100 delay-150 duration-[450ms]" : "pointer-events-none -translate-y-2 opacity-0 delay-0 duration-150"}`} aria-hidden={active !== i}>
                   <StopBody stop={s} tabbable={active === i} />
                 </div>
               ))}

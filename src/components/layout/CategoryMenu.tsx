@@ -41,10 +41,10 @@ export function CategoryMenu({ categories }: { categories: CategoryNode[] }) {
               <Link href={`/categories/${cat.slug}`} className="font-display text-[2rem] leading-none hover:text-signal">
                 {cat.name}
               </Link>
-              <ul className="mt-4 space-y-2 text-sm text-fog">
+              <ul className="mt-3 space-y-0.5 text-sm text-fog">
                 {cat.children.map((c) => (
                   <li key={c.id}>
-                    <Link href={`/categories/${c.slug}`} className={`flex justify-between gap-2 hover:text-paper ${c.productCount === 0 ? "opacity-60" : ""}`}>
+                    <Link href={`/categories/${c.slug}`} className={`flex justify-between gap-2 py-1 hover:text-paper ${c.productCount === 0 ? "opacity-60" : ""}`}>
                       <span>{c.name}</span>
                       {c.productCount > 0 && <span className="tabular text-steel">{c.productCount}</span>}
                     </Link>

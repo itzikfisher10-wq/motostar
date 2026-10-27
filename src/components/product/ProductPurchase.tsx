@@ -53,9 +53,9 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
   const askText = useMemo(() => `היי, אשמח לבדוק התאמה של "${product.title}"${hasOptions ? ` (${variant.title})` : ""} לאופנוע שלי`, [product.title, hasOptions, variant.title]);
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
       {/* Gallery */}
-      <div className="lg:sticky lg:top-28 lg:self-start">
+      <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
         <div className="relative aspect-square overflow-hidden rounded-[var(--radius-panel)] bg-mist">
           {image ? (
             <Image key={image.id} src={image.url} alt={image.alt} fill priority sizes="(min-width: 1024px) 56vw, 100vw" className="object-contain p-[7%] motion-safe:animate-fade-in" />
@@ -66,7 +66,7 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
         {product.images.length > 1 && (
           <ul className="scrollbar-none mt-3 flex gap-2 overflow-x-auto" aria-label="תמונות המוצר">
             {product.images.map((im, i) => (
-              <li key={im.id}>
+              <li key={im.id} className="shrink-0">
                 <button
                   type="button"
                   onClick={() => setImageIndex(i)}

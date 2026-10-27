@@ -1,6 +1,6 @@
 /**
  * Arai flagship section (home page) — copy defaults and configuration.
- * The hero kicker/title/body can also be edited in Admin → Site content (that wins over these defaults).
+ * The hero title/body can also be edited in Admin → Site content (that wins over these defaults).
  * Docs: docs/editing-guide.md → "אזור Arai"
  *
  * Every product referenced here is a real spare part MotoStar sells. Prices,
@@ -22,8 +22,6 @@ export type AraiHeroMedia =
   | { type: "sequence"; pathPattern: string; frameCount: number; width: number; height: number; alt: string };
 
 export const araiHero = {
-  /** Shown above the headline. */
-  kicker: "חלפים מקוריים",
   title: "Arai, חלק אחרי חלק",
   body: "משקפים, מנגנוני משקף, ריפודים, ספוילרים וכונסי אוויר לדגמי SZ-R VAS, RX-7V ו-RAM-X. מקוריים, על המדף בחולון.",
   primaryCta: { label: "לכל חלפי Arai", href: "/brands/arai" },

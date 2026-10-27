@@ -6,6 +6,19 @@ export function siteUrl(path = "/"): string {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/**
+ * Temporary Vercel addresses (*.vercel.app) must never be indexed: they would compete with
+ * the real domain as a duplicate copy of the store. Indexing opens once NEXT_PUBLIC_SITE_URL
+ * is set to the real domain (https://motostar.co.il).
+ */
+export function isIndexableSite(): boolean {
+  try {
+    return !new URL(siteUrl("/")).hostname.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+}
+
 /** Truncates at a word boundary for meta descriptions (~155 chars). */
 export function metaDescription(text: string, max = 155): string {
   const clean = text.replace(/\s+/g, " ").trim();
@@ -37,7 +50,7 @@ export function buildMetadata({ title, description, path, image, noindex, type =
     title,
     description: metaDescription(description),
     alternates: { canonical: url },
-    robots: noindex ? { index: false, follow: true } : undefined,
+    robots: noindex || !isIndexableSite() ? { index: false, follow: true } : undefined,
     openGraph: { type, url, title: `${title} | ${site.name}`, description: metaDescription(description), siteName: site.name, locale: site.locale, images },
     twitter: { card: images ? "summary_large_image" : "summary", title: `${title} | ${site.name}`, description: metaDescription(description) },
   };

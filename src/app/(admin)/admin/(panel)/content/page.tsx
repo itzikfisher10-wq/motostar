@@ -30,7 +30,6 @@ export default async function AdminContentPage() {
         </Panel>
         <Panel title="פתיח Arai בעמוד הבית" description="הכותרת והטקסט ליד תמונת הקסדה.">
           <ActionForm action={saveContentAction.bind(null, "araiHero")} className="space-y-4">
-            <TextField label="שורה מעל הכותרת" name="kicker" defaultValue={hero.kicker} maxLength={40} />
             <TextField label="כותרת" name="title" defaultValue={hero.title} maxLength={60} required />
             <TextArea label="טקסט" name="body" defaultValue={hero.body} rows={4} maxLength={300} />
             <SubmitButton>שמירה</SubmitButton>

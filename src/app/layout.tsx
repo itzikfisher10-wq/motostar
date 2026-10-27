@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { karantina, plex } from "@/styles/fonts";
 import { site } from "@/config/site";
-import { siteUrl } from "@/lib/seo/metadata";
+import { isIndexableSite, siteUrl } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl("/")),
@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   formatDetection: { telephone: false },
+  // Pages that do not set their own robots inherit this (temporary *.vercel.app: noindex).
+  robots: isIndexableSite() ? undefined : { index: false, follow: true },
 };
 
 export const viewport: Viewport = {
