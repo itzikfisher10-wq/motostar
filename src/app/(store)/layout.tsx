@@ -3,6 +3,7 @@ import { CartProvider } from "@/components/cart/CartProvider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { RevealObserver } from "@/components/motion/RevealObserver";
 import { getCategoryTree } from "@/features/catalog/queries";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
 
@@ -19,6 +20,7 @@ export default async function StoreLayout({ children }: { children: React.ReactN
       </main>
       <Footer categories={categories} />
       <CartDrawer />
+      <RevealObserver />
       <JsonLd data={organizationJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
     </CartProvider>

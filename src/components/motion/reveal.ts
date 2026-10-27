@@ -1,9 +1,11 @@
 import type { CSSProperties } from "react";
 
 /**
- * Typed opt-ins for the scroll-driven motion in src/styles/motion.css.
- * Spread them onto an element: <h2 {...reveal.wipe}>. Works in server components (no JS runs).
- * Browsers without scroll-driven animations, and reduced-motion users, see the final state.
+ * Typed opt-ins for the motion in src/styles/motion.css.
+ * Spread them onto an element: <h2 {...reveal.wipe}>. Works in server components.
+ * Entrances (focus, panel, wipe, grid, cascade) are triggered by RevealObserver (store layout)
+ * and run in every browser; drift, depth and close follow the scroll where supported.
+ * Reduced-motion users, and visitors without JS, see the final state.
  */
 export const reveal = {
   /** Heading or text block: soft-focus rise as it enters. */
