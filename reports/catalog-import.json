@@ -1,0 +1,1599 @@
+{
+  "stats": {
+    "sourceRecords": 79,
+    "sourceVariants": 85,
+    "uniqueProducts": 71,
+    "variants": 84,
+    "mergedAsVariants": 7,
+    "duplicatesMerged": 1,
+    "needsReview": 12,
+    "withoutImages": 0,
+    "withoutCategory": 0,
+    "collectionCountMismatch": [
+      {
+        "handle": "yamaha",
+        "title": "Yamaha",
+        "reported": 28,
+        "visible": 25
+      },
+      {
+        "handle": "מערכת-בלמים",
+        "title": "בלמים ודיסקים",
+        "reported": 10,
+        "visible": 7
+      },
+      {
+        "handle": "מבצע",
+        "title": "מבצעים",
+        "reported": 39,
+        "visible": 35
+      }
+    ]
+  },
+  "applied": {
+    "created": 0,
+    "updated": 0,
+    "skipped": 71,
+    "sourceRecordsWritten": 0
+  },
+  "products": [
+    {
+      "slug": "מנגנון-משקף-חיצוני-לקסדת-arai-3-4-sz-r-vas",
+      "title": "מנגנון משקף חיצוני לקסדת Arai 3/4 SZ-R VAS",
+      "sources": [
+        {
+          "id": 8213588213814,
+          "handle": "arai-3-4-szr-vas-1",
+          "resolution": "CREATED"
+        },
+        {
+          "id": 8213590966326,
+          "handle": "צדדיות-לקסדה-arai-3-4-szr-vas-2",
+          "resolution": "MERGED_AS_VARIANT"
+        },
+        {
+          "id": 8213591425078,
+          "handle": "צדדיות-לקסדה-arai-3-4-szr-vas-3",
+          "resolution": "MERGED_AS_VARIANT"
+        },
+        {
+          "id": 8213591752758,
+          "handle": "צדדיות-לקסדה-arai-3-4-szr-vas-4",
+          "resolution": "MERGED_AS_VARIANT"
+        },
+        {
+          "id": 8186412826678,
+          "handle": "צדדיות-לקסדה-arai-3-4-szr-vas",
+          "resolution": "MERGED_AS_VARIANT"
+        },
+        {
+          "id": 8213593882678,
+          "handle": "צדדיות-לקסדה-arai-3-4-szr-vas-5",
+          "resolution": "MERGED_AS_VARIANT"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": [
+        "אוחד מ-6 רשומות מקור כווריאציות צבע: שם זהה, תיאור זהה, מחיר זהה (200 ₪ / 250 ₪), אותו דגם קסדה — ההבדל היחיד הוא צבע."
+      ]
+    },
+    {
+      "slug": "מנגנון-משקף-חיצוני-לקסדת-arai-ram-x",
+      "title": "מנגנון משקף חיצוני לקסדת Arai RAM-X",
+      "sources": [
+        {
+          "id": 8213763883062,
+          "handle": "צדדיות-לקסדה-arai-ram-x-1",
+          "resolution": "CREATED"
+        },
+        {
+          "id": 8213762834486,
+          "handle": "צדדיות-לקסדה-arai-ram-x",
+          "resolution": "MERGED_AS_VARIANT"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": [
+        "אוחד מ-2 רשומות מקור כווריאציות צבע: שם זהה, מחיר זהה (199.90 ₪), אותו דגם קסדה — ההבדל היחיד הוא צבע."
+      ]
+    },
+    {
+      "slug": "כונס-אוויר-קדמי-לקסדת-arai-sz-r-vas",
+      "title": "כונס אוויר קדמי לקסדת Arai SZ-R VAS",
+      "sources": [
+        {
+          "id": 8213762113590,
+          "handle": "arai-1",
+          "resolution": "CREATED"
+        },
+        {
+          "id": 8213697364022,
+          "handle": "arai",
+          "resolution": "MERGED_AS_VARIANT"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": [
+        "אוחד מ-2 רשומות מקור כווריאציות צבע: שם זהה, מחיר זהה (150 ₪), אותו דגם קסדה — ההבדל היחיד הוא גימור הצבע."
+      ]
+    },
+    {
+      "slug": "מחזיר-שמן-לקראנק-yamaha-xmax-300",
+      "title": "מחזיר שמן לקראנק Yamaha Xmax 300",
+      "sources": [
+        {
+          "id": 8627399000118,
+          "handle": "מחזיר-שמן-לקראנק-yamaha-xmax-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מסנן-אויר-מקורי-yamaha-xmax-300",
+      "title": "מסנן אויר מקורי Yamaha Xmax 300",
+      "sources": [
+        {
+          "id": 8627358564406,
+          "handle": "מסנן-אויר-yamaha-xmax-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "שמן-מנוע-4-ליטר-10w40-5100-motul",
+      "title": "שמן מנוע 4 ליטר 10W40 5100 Motul",
+      "sources": [
+        {
+          "id": 8627482460214,
+          "handle": "שמן-מנוע-4-ליטר-10w40-5100",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "מועמד לאיחוד כמוצר אחד עם בחירת נפח — לא אוחד, להחלטת בעל העסק"
+      ]
+    },
+    {
+      "slug": "שמן-מנוע-1-ליטר-10w40-5100-motul",
+      "title": "שמן מנוע 1 ליטר 10W40 5100 Motul",
+      "sources": [
+        {
+          "id": 8627346767926,
+          "handle": "לדוגמא-copy",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "מועמד לאיחוד כמוצר אחד עם בחירת נפח — לא אוחד, להחלטת בעל העסק"
+      ]
+    },
+    {
+      "slug": "שמן-מנוע-4-ליטר-10w50-5100-motul",
+      "title": "שמן מנוע 4 ליטר 10W50 5100 Motul",
+      "sources": [
+        {
+          "id": 8627518242870,
+          "handle": "שמן-מנוע-4-ליטר-10w50-5100-motul",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "מועמד לאיחוד כמוצר אחד עם בחירת נפח — לא אוחד, להחלטת בעל העסק",
+        "הכותרת אומרת 10W50 אך התיאור אומר 10W40"
+      ]
+    },
+    {
+      "slug": "שמן-מנוע-1-ליטר-10w50-5100-motul",
+      "title": "שמן מנוע 1 ליטר 10W50 5100 Motul",
+      "sources": [
+        {
+          "id": 8627347128374,
+          "handle": "לדוגמא-copy-2",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "מועמד לאיחוד כמוצר אחד עם בחירת נפח — לא אוחד, להחלטת בעל העסק"
+      ]
+    },
+    {
+      "slug": "רצועה-וריאטור-yamaha-xmax-300",
+      "title": "רצועה וריאטור Yamaha Xmax 300",
+      "sources": [
+        {
+          "id": 8548948738102,
+          "handle": "template-מוצר-חדש",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-קלאץ-yamaha-mt-07-tracer-700-tenere-700",
+      "title": "קיט קלאץ Yamaha MT-07 / Tracer 700 / Tenere 700",
+      "sources": [
+        {
+          "id": 8569309265974,
+          "handle": "קיט-קלאץ-yamaha-mt07",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-פוליני-עם-רצועה-לטימקס-530-560",
+      "title": "קיט פוליני עם רצועה לטימקס 530/560",
+      "sources": [
+        {
+          "id": 8549352439862,
+          "handle": "קיט-פוליני-עם-רצועה-לטימקס-530-560",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "סטרטר-לסאן-יאנג-גויימקס-250-300",
+      "title": "סטרטר לסאן יאנג ג׳ויימקס 250/300",
+      "sources": [
+        {
+          "id": 8549182636086,
+          "handle": "סטרטר-לגויימקס-250-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "ספוילרים-arai-szr-vas",
+      "title": "ספוילרים Arai Szr-vas",
+      "sources": [
+        {
+          "id": 8482877964342,
+          "handle": "spoilers-arai-szr-vas",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "סנדלי-סחיבה-תואם-מקורי-jm250-300-cruisym300",
+      "title": "סנדלי סחיבה תואם מקורי JM250/300 / CRUISYM300",
+      "sources": [
+        {
+          "id": 8388605214774,
+          "handle": "סנדלי-סחיבה-תואם-מקורי-jm250-300-cruisym300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "תיקון קטגוריה: סנדלי סחיבה הם חלק ממערכת ההנעה (קלאץ׳), לא מערכת בלמים"
+      ]
+    },
+    {
+      "slug": "סנדלי-סחיבה-yamaha-xmax-300",
+      "title": "סנדלי סחיבה Yamaha Xmax 300",
+      "sources": [
+        {
+          "id": 8388684709942,
+          "handle": "סנדלי-סחיבה-yamaha-xmax-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "תיקון קטגוריה: סנדלי סחיבה הם חלק ממערכת ההנעה (קלאץ׳), לא מערכת בלמים"
+      ]
+    },
+    {
+      "slug": "סטרטר-מקורי-yamaha-nmax",
+      "title": "סטרטר מקורי Yamaha Nmax",
+      "sources": [
+        {
+          "id": 8388654530614,
+          "handle": "סטרטר-מקורי-yamaha-nmax",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "משאבת-שמן-yamaha-xmax300",
+      "title": "משאבת שמן Yamaha Xmax300",
+      "sources": [
+        {
+          "id": 8388606722102,
+          "handle": "משאבת-שמן-yamaha-xmax300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "כיסוי-מושב",
+      "title": "כיסוי מושב",
+      "sources": [
+        {
+          "id": 8382804623414,
+          "handle": "כיסוי-מושב",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "סטרטר-לגט-14",
+      "title": "סטרטר לג'ט 14",
+      "sources": [
+        {
+          "id": 8385430618166,
+          "handle": "סטרטר-לגט-14",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btz7s",
+      "title": "מצבר BTZ7S",
+      "sources": [
+        {
+          "id": 8213567176758,
+          "handle": "מצברים",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btx14-bs-2",
+      "title": "מצבר BTX14-BS",
+      "sources": [
+        {
+          "id": 8223073796150,
+          "handle": "מצבר-btx14",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-bt7b-4",
+      "title": "מצבר BT7B-4",
+      "sources": [
+        {
+          "id": 8223073894454,
+          "handle": "מצבר-bt7b-4",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btz8v",
+      "title": "מצבר BTZ8V",
+      "sources": [
+        {
+          "id": 8223074680886,
+          "handle": "מצבר-btz8v",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btx5l-btz6s",
+      "title": "מצבר BTX5L/BTZ6S",
+      "sources": [
+        {
+          "id": 8223074484278,
+          "handle": "מצבר-btx5l-btz6s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btx14-2",
+      "title": "מצבר BTX14",
+      "sources": [
+        {
+          "id": 8223074320438,
+          "handle": "מצבר-btx14-bs",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btx12",
+      "title": "מצבר BTX12",
+      "sources": [
+        {
+          "id": 8223074091062,
+          "handle": "מצבר-btx12",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btz7v",
+      "title": "מצבר BTZ7V",
+      "sources": [
+        {
+          "id": 8223073959990,
+          "handle": "מצבר-btz7v",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-bt12a-bs",
+      "title": "מצבר BT12A-BS",
+      "sources": [
+        {
+          "id": 8223073828918,
+          "handle": "מצבר-bt12a-bs",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מצבר-btx5l-bs",
+      "title": "מצבר BTX5L-BS",
+      "sources": [
+        {
+          "id": 8223073665078,
+          "handle": "מצבר-btx5l-bs",
+          "resolution": "CREATED"
+        },
+        {
+          "id": 8223074582582,
+          "handle": "מצבר-btx5l-bs-1",
+          "resolution": "DUPLICATE_OF"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "רשומת מקור 8223074582582 זוהתה ככפילות ואוחדה: כותרת, SKU, תיאור ומחיר זהים לחלוטין (מצבר BTX5L-BS, 500 ₪). רק התמונה שונה. לאשר מול המלאי שמדובר באותו מצבר (ולא שני ספקים שונים)."
+      ]
+    },
+    {
+      "slug": "arai-szr-vas-משקף-מעושן",
+      "title": "Arai Szr-vas משקף מעושן",
+      "sources": [
+        {
+          "id": 8213614723126,
+          "handle": "arai-szr-vas-משקף-מעושן",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "ריפוד-arai-szr-vas-20mm",
+      "title": "ריפוד Arai Szr-Vas 20mm",
+      "sources": [
+        {
+          "id": 8213594308662,
+          "handle": "ריפוד-arai-szr-vas-20mm",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "ריפוד-ראש-arai-szr-vas-7mm",
+      "title": "ריפוד ראש Arai Szr-Vas 7mm",
+      "sources": [
+        {
+          "id": 8186420625462,
+          "handle": "ריפוד-ראש-arai-szr-vas-7mm",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "ריפוד-arai-szr-vas-25mm",
+      "title": "ריפוד Arai Szr-Vas 25mm",
+      "sources": [
+        {
+          "id": 8186366165046,
+          "handle": "ריפוד-arai-szr-vas-25mm",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "משקף-כהה-לקסדה-arai-rx7v-quantic",
+      "title": "משקף כהה לקסדה Arai Rx7v/Quantic",
+      "sources": [
+        {
+          "id": 8186319110198,
+          "handle": "משקף-כהה-לקסדה-מלאה-arai-vas-v-rx7-gp",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מראות-לימאה-טימקס",
+      "title": "מראות לימאה טימקס",
+      "sources": [
+        {
+          "id": 8328851980342,
+          "handle": "מראות-לימאה-טימקס",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "סלילים-sym-joyride",
+      "title": "סלילים Sym Joyride",
+      "sources": [
+        {
+          "id": 8327395967030,
+          "handle": "סלילים-לסאן-יאנג",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "משענת-מורכב-yamaha-tmax-560",
+      "title": "משענת מורכב Yamaha Tmax 560",
+      "sources": [
+        {
+          "id": 8309384871990,
+          "handle": "משענת-מורכב-טימקס-560",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "דיסק-אחורי-sym-joyride",
+      "title": "דיסק אחורי Sym Joyride",
+      "sources": [
+        {
+          "id": 8279555571766,
+          "handle": "דיסק-אחורי-sym-joyride",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "דיסק-אחורי-yamaha-xmax-300",
+      "title": "דיסק אחורי Yamaha Xmax 300",
+      "sources": [
+        {
+          "id": 8258907373622,
+          "handle": "דיסק-אחורי-yamaha-xmax-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "דיסק-קדמי-yamaha-xmax-300",
+      "title": "דיסק קדמי Yamaha Xmax 300",
+      "sources": [
+        {
+          "id": 8258907013174,
+          "handle": "xmax300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "ספוילר-אחורי-arai-szr-vas",
+      "title": "ספוילר אחורי Arai Szr-vas",
+      "sources": [
+        {
+          "id": 8213769945142,
+          "handle": "ספוילר-אחורי-arai-rx7-szr-vas",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "פילטר-שמן-מקורי-xmax125-300",
+      "title": "פילטר שמן מקורי Xmax125/300",
+      "sources": [
+        {
+          "id": 8213565964342,
+          "handle": "פילטר-שמן-מקורי-xmax125-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-למובי-s",
+      "title": "קיט טיפול גדול למובי S",
+      "sources": [
+        {
+          "id": 8213563605046,
+          "handle": "קיטים-טיפולים",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "משענת-מורכב-yamaha-tmax-530-560",
+      "title": "משענת מורכב Yamaha Tmax 530/560",
+      "sources": [
+        {
+          "id": 8309384380470,
+          "handle": "משענת-מורכב-טימקס",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "משענת-מורכב-ת-yamaha-xmax",
+      "title": "משענת מורכב/ת Yamaha Xmax",
+      "sources": [
+        {
+          "id": 8309383266358,
+          "handle": "yamaha-xmax-125-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "ה-SKU \"משענת מורכב Yamaha Xmax\" משותף למוצרים שונים במקור — יש לתת SKU ייחודי"
+      ]
+    },
+    {
+      "slug": "משענת-מורכב-yamaha-xmax-125-300",
+      "title": "משענת מורכב Yamaha Xmax 125/300",
+      "sources": [
+        {
+          "id": 8309378908214,
+          "handle": "משענת-מורכב-ימאה-אקס-מקס",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "ה-SKU \"משענת מורכב Yamaha Xmax\" משותף למוצרים שונים במקור — יש לתת SKU ייחודי"
+      ]
+    },
+    {
+      "slug": "סטרטר-sym-joyride",
+      "title": "סטרטר Sym Joyride",
+      "sources": [
+        {
+          "id": 8308867563574,
+          "handle": "סטרטר-לג-וייריד-חליפי",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "המוכר לא ציין גרסה (125/200, S/EVO) — לבדוק לפני אישור"
+      ]
+    },
+    {
+      "slug": "דיסק-אחורי-kymco-movie-s",
+      "title": "דיסק אחורי kymco movie S",
+      "sources": [
+        {
+          "id": 8279556554806,
+          "handle": "דיסק-אחורי-kymco-movie-s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "דיסק-קדמי-sym-joyride-s",
+      "title": "דיסק קדמי Sym Joyride S",
+      "sources": [
+        {
+          "id": 8279555178550,
+          "handle": "דיסק-קדמי-joyride-s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "המוכר כתב \"Joyride S\" ללא נפח"
+      ]
+    },
+    {
+      "slug": "מגן-רוח-sym-joyride-125-200",
+      "title": "מגן רוח Sym Joyride 125/200",
+      "sources": [
+        {
+          "id": 8216748294198,
+          "handle": "מגן-רוח",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-חליפי-לגוייריד-200evo",
+      "title": "קיט טיפול גדול חליפי לג׳וייריד 200Evo",
+      "sources": [
+        {
+          "id": 8226932981814,
+          "handle": "קיט-טיפול-גדול-לג-וייריד-200evo",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-חליפי-לגוייריד-125evo",
+      "title": "קיט טיפול גדול חליפי לג׳וייריד 125Evo",
+      "sources": [
+        {
+          "id": 8226932883510,
+          "handle": "קיט-טיפול-גדול-לג-וייריד-125evo",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-חליפי-לגוייריד-125s",
+      "title": "קיט טיפול גדול חליפי לג׳וייריד 125S",
+      "sources": [
+        {
+          "id": 8226932785206,
+          "handle": "קיט-טיפול-גדול-לג-וייריד-125s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-חליפי-גוייריד-200s",
+      "title": "קיט טיפול גדול חליפי ג׳וייריד 200S",
+      "sources": [
+        {
+          "id": 8226932654134,
+          "handle": "קיט-טיפול-גדול-חליפי-ג-וייריד-200s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-מקורי-לגוייריד-200s",
+      "title": "קיט טיפול גדול מקורי לג׳וייריד 200S",
+      "sources": [
+        {
+          "id": 8226932391990,
+          "handle": "קיט-טיפול-גדול-לג-וייריד-200s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-מקורי-גוייריד-125-s",
+      "title": "קיט טיפול גדול מקורי ג׳וייריד 125 S",
+      "sources": [
+        {
+          "id": 8226931245110,
+          "handle": "קיט-טיפול-ג-וייריד-125-s",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-מקורי-ימאה-אקס-מקס-300",
+      "title": "קיט טיפול גדול מקורי ימאה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226928558134,
+          "handle": "300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "צילינדר-מקורי-ימאה-אקס-מקס-300",
+      "title": "צילינדר מקורי ימאה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226414526518,
+          "handle": "צילינדר-מקורי-אקס-מקס-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מסנן-וריאטור-מקורי-ימאה-אקס-מקס-300",
+      "title": "מסנן וריאטור מקורי ימאה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226412757046,
+          "handle": "מסנן-וריאטור-לאקס-מקס-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מחזיר-שמן-בולם-קדמי-ימאה-אקס-מקס-300",
+      "title": "מחזיר שמן בולם קדמי ימאה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226410168374,
+          "handle": "מחזיר-שמן-לבולם-קדמי-אקס-מקס",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": true,
+      "reviewNotes": [
+        "תיקון קטגוריה: למוצר לא הוגדרה קטגוריה במקור; שויך לחלקי חילוף כללי"
+      ]
+    },
+    {
+      "slug": "סט-רינגים-ימאהה-אקס-מקס-300",
+      "title": "סט רינגים ימאהה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226389622838,
+          "handle": "סט-רינגים-לאקס-מקס-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "אטם-בסיס-צילינדר-ימאה-אקס-מקס-300",
+      "title": "אטם בסיס צילינדר ימאה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226244624438,
+          "handle": "אטם-בסיס-צילינדר-אקס-מקס-300",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "אטם-ראש-מנוע-ימאה-אקס-מקס-300",
+      "title": "אטם ראש מנוע ימאה אקס מקס 300",
+      "sources": [
+        {
+          "id": 8226243051574,
+          "handle": "untitled-mar1_02-43",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "קיט-טיפול-גדול-מקורי-downtown-250-350",
+      "title": "קיט טיפול גדול מקורי Downtown 250-350",
+      "sources": [
+        {
+          "id": 8226242330678,
+          "handle": "קיט-טיפול-גדול-downtown-250-300-350",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "אזעקה-ביפר-לאופנוע",
+      "title": "אזעקה ביפר לאופנוע",
+      "sources": [
+        {
+          "id": 8213559803958,
+          "handle": "אזעקות",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מגן-אגזוז-125-200-joyride",
+      "title": "מגן אגזוז 125/200 joyride",
+      "sources": [
+        {
+          "id": 8216757731382,
+          "handle": "מגיני-אגזוז",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "arai-szr-vas-משקף-שחור-כהה",
+      "title": "Arai Szr-vas משקף שחור כהה",
+      "sources": [
+        {
+          "id": 8213947744310,
+          "handle": "arai-szr-vas-משקף-כהה",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מנגנון-משקף-פנימי-arai-rx7v",
+      "title": "מנגנון משקף פנימי Arai Rx7v",
+      "sources": [
+        {
+          "id": 8213765226550,
+          "handle": "arai-rx7",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מנגנון-משקף-פנימי-לקסדת-arai-rx7",
+      "title": "מנגנון משקף פנימי לקסדת Arai Rx7",
+      "sources": [
+        {
+          "id": 8213764669494,
+          "handle": "צדדיות-פנימיים-arai-rx7-ישן",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    },
+    {
+      "slug": "מנגנון-משקף-פנימי-לקסדה-arai-szr-vas",
+      "title": "מנגנון משקף פנימי לקסדה Arai Szr-Vas",
+      "sources": [
+        {
+          "id": 8186424819766,
+          "handle": "צדדיות-פנימיות-לקסדת-arai-szr-vas",
+          "resolution": "CREATED"
+        }
+      ],
+      "needsReview": false,
+      "reviewNotes": []
+    }
+  ],
+  "findings": [
+    {
+      "kind": "SAME_NAME",
+      "title": "מצבר BTX5L-BS",
+      "ids": [
+        8223074582582,
+        8223073665078
+      ],
+      "samePrice": true,
+      "differingBy": "מצבר BTX5L-BS · ₪500 / מצבר BTX5L-BS · ₪500"
+    },
+    {
+      "kind": "SAME_NAME",
+      "title": "Arai Szr-vas משקף מעושן",
+      "ids": [
+        8213614723126,
+        8213947744310
+      ],
+      "samePrice": false,
+      "differingBy": "מעושן / משקף שחור Arai Szr · ₪500"
+    },
+    {
+      "kind": "SAME_NAME",
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "ids": [
+        8213588213814,
+        8213590966326,
+        8213591425078,
+        8213591752758,
+        8213593882678,
+        8186412826678
+      ],
+      "samePrice": true,
+      "differingBy": "לבן פנינה / לבן פנינה מט / כסוף מט / שחור פנינה מבריק / אפור ירוק / שחור מט"
+    },
+    {
+      "kind": "SAME_NAME",
+      "title": "מנגנון משקף חיצוני לקסדה Arai Ram x",
+      "ids": [
+        8213763883062,
+        8213762834486
+      ],
+      "samePrice": true,
+      "differingBy": "כסוף / לבן פנינה"
+    },
+    {
+      "kind": "SAME_NAME",
+      "title": "כונס אויר קדמי Arai Szr-vas",
+      "ids": [
+        8213762113590,
+        8213697364022
+      ],
+      "samePrice": true,
+      "differingBy": "שחור מט / שחור מבריק"
+    },
+    {
+      "kind": "IDENTICAL_CONTENT",
+      "ids": [
+        8223074582582,
+        8223073665078
+      ],
+      "detail": "כותרת, תיאור, מחיר ו-SKU זהים"
+    },
+    {
+      "kind": "SKU_COLLISION",
+      "sku": "מצבר BTX5L-BS",
+      "ids": [
+        8223074582582,
+        8223073665078
+      ]
+    },
+    {
+      "kind": "SKU_COLLISION",
+      "sku": "משענת מורכב Yamaha Xmax",
+      "ids": [
+        8309383266358,
+        8309378908214
+      ]
+    },
+    {
+      "kind": "SHARED_IMAGE",
+      "imageId": 39165060808758,
+      "ids": [
+        8309384871990,
+        8309384380470
+      ]
+    },
+    {
+      "kind": "SHARED_IMAGE",
+      "imageId": 39421798121526,
+      "ids": [
+        8226932981814,
+        8226932883510,
+        8226932785206,
+        8226932654134
+      ]
+    },
+    {
+      "kind": "SHARED_IMAGE",
+      "imageId": 38895623831606,
+      "ids": [
+        8226932391990,
+        8226931245110
+      ]
+    },
+    {
+      "kind": "SIZE_VARIANT_CANDIDATE",
+      "family": "שמן מנוע 10w40 5100 motul",
+      "ids": [
+        8627482460214,
+        8627346767926
+      ]
+    },
+    {
+      "kind": "SIZE_VARIANT_CANDIDATE",
+      "family": "שמן מנוע 10w50 5100 motul",
+      "ids": [
+        8627518242870,
+        8627347128374
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "id": 8627399000118,
+      "title": "מחזיר שמן לקראנק Yamaha Xmax 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8627358564406,
+      "title": "מסנן אויר מקורי Yamaha Xmax 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8627482460214,
+      "title": "שמן מנוע 4 ליטר 10W40 5100 Motul",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8627346767926,
+      "title": "שמן מנוע 1 ליטר 10W40 5100 Motul",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8627518242870,
+      "title": "שמן מנוע 4 ליטר 10W50 5100 Motul",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8627518242870,
+      "title": "שמן מנוע 4 ליטר 10W50 5100 Motul",
+      "issue": "הכותרת אומרת 10W50 אך התיאור אומר 10W40"
+    },
+    {
+      "id": 8627347128374,
+      "title": "שמן מנוע 1 ליטר 10W50 5100 Motul",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8548948738102,
+      "title": "רצועה וריאטור Yamaha Xmax 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8569309265974,
+      "title": "קיט קלאץ Yamaha MT-07 / Tracer 700 / Tenere 700",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8549352439862,
+      "title": "קיט פוליני עם רצועה לטימקס 530/560",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8549182636086,
+      "title": "סטרטר לסאן יאנג ג׳ויימקס 250/300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8482877964342,
+      "title": "ספוילרים Arai Szr-vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8482877964342,
+      "title": "ספוילרים Arai Szr-vas",
+      "issue": "חסר SKU באחת הווריאציות"
+    },
+    {
+      "id": 8388605214774,
+      "title": "סנדלי סחיבה תואם מקורי JM250/300 / CRUISYM300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8388684709942,
+      "title": "סנדלי סחיבה Yamaha Xmax 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8388654530614,
+      "title": "סטרטר מקורי Yamaha Nmax",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8388606722102,
+      "title": "משאבת שמן Yamaha Xmax300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8382804623414,
+      "title": "כיסוי מושב",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8385430618166,
+      "title": "סטרטר לג'ט 14",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213567176758,
+      "title": "מצבר BTZ7S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223073796150,
+      "title": "מצבר BTX14-BS",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223073894454,
+      "title": "מצבר BT7B-4",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223074680886,
+      "title": "מצבר BTZ8V",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223074582582,
+      "title": "מצבר BTX5L-BS",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223074484278,
+      "title": "מצבר BTX5L/BTZ6S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223074320438,
+      "title": "מצבר BTX14",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223074091062,
+      "title": "מצבר BTX12",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223073959990,
+      "title": "מצבר BTZ7V",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223073828918,
+      "title": "מצבר BT12A-BS",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8223073665078,
+      "title": "מצבר BTX5L-BS",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213614723126,
+      "title": "Arai Szr-vas משקף מעושן",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213594308662,
+      "title": "ריפוד Arai Szr-Vas 20mm",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8186420625462,
+      "title": "ריפוד ראש  Arai Szr-Vas  7mm",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8186366165046,
+      "title": "ריפוד Arai Szr-Vas 25mm",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8186319110198,
+      "title": "משקף כהה לקסדה Arai Rx7v/Quantic",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8328851980342,
+      "title": "מראות לימאה טימקס",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8327395967030,
+      "title": "סלילים Sym Joyride",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8309384871990,
+      "title": "משענת מורכב Yamaha Tmax 560",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8279555571766,
+      "title": "דיסק אחורי Sym Joyride",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8258907373622,
+      "title": "דיסק אחורי Yamaha Xmax 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8258907013174,
+      "title": "דיסק קדמי Yamaha Xmax 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213769945142,
+      "title": "ספוילר אחורי Arai Szr-vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213769945142,
+      "title": "ספוילר אחורי Arai Szr-vas",
+      "issue": "חסר SKU באחת הווריאציות"
+    },
+    {
+      "id": 8213769945142,
+      "title": "ספוילר אחורי Arai Szr-vas",
+      "issue": "התיאור מציין 3 צבעים אך קיימות 5 וריאציות"
+    },
+    {
+      "id": 8213565964342,
+      "title": "פילטר שמן מקורי Xmax125/300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213563605046,
+      "title": "קיט טיפול גדול למובי S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8309384380470,
+      "title": "משענת מורכב Yamaha Tmax 530/560",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8309383266358,
+      "title": "משענת מורכב/ת Yamaha Xmax",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8309383266358,
+      "title": "משענת מורכב/ת Yamaha Xmax",
+      "issue": "מסומן כלא זמין במקור"
+    },
+    {
+      "id": 8309378908214,
+      "title": "משענת מורכב Yamaha Xmax 125/300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8308867563574,
+      "title": "סטרטר  Sym Joyride",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8279556554806,
+      "title": "דיסק אחורי kymco movie S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8279555178550,
+      "title": "דיסק קדמי Sym Joyride S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8216748294198,
+      "title": "מגן רוח Sym Joyride 125/200",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226932981814,
+      "title": "קיט טיפול גדול חליפי לג׳וייריד 200Evo",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226932883510,
+      "title": "קיט טיפול גדול חליפי לג׳וייריד 125Evo",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226932785206,
+      "title": "קיט טיפול גדול חליפי לג׳וייריד 125S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226932654134,
+      "title": "קיט טיפול גדול חליפי ג׳וייריד 200S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226932391990,
+      "title": "קיט טיפול גדול מקורי לג׳וייריד 200S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226931245110,
+      "title": "קיט טיפול גדול מקורי ג׳וייריד 125 S",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226928558134,
+      "title": "קיט טיפול גדול מקורי ימאה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226414526518,
+      "title": "צילינדר מקורי ימאה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226414526518,
+      "title": "צילינדר מקורי ימאה אקס מקס 300",
+      "issue": "מסומן כלא זמין במקור"
+    },
+    {
+      "id": 8226412757046,
+      "title": "מסנן וריאטור מקורי ימאה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226410168374,
+      "title": "מחזיר שמן בולם קדמי ימאה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226389622838,
+      "title": "סט רינגים ימאהה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226244624438,
+      "title": "אטם בסיס צילינדר ימאה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226243051574,
+      "title": "אטם ראש מנוע ימאה אקס מקס 300",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8226242330678,
+      "title": "קיט טיפול גדול מקורי Downtown 250-350",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213559803958,
+      "title": "אזעקה ביפר לאופנוע",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8216757731382,
+      "title": "מגן אגזוז  125/200 joyride",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213947744310,
+      "title": "Arai Szr-vas משקף שחור כהה",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213588213814,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213590966326,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213590966326,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "מסומן כלא זמין במקור"
+    },
+    {
+      "id": 8213591425078,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213591752758,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213591752758,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "מסומן כלא זמין במקור"
+    },
+    {
+      "id": 8213765226550,
+      "title": "מנגנון משקף פנימי Arai Rx7v",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213764669494,
+      "title": "מנגנון משקף פנימי לקסדת Arai Rx7",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213763883062,
+      "title": "מנגנון משקף חיצוני לקסדה Arai Ram x",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213762834486,
+      "title": "מנגנון משקף חיצוני לקסדה Arai Ram x",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213762834486,
+      "title": "מנגנון משקף חיצוני לקסדה Arai Ram x",
+      "issue": "מסומן כלא זמין במקור"
+    },
+    {
+      "id": 8213762113590,
+      "title": "כונס אויר קדמי Arai Szr-vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213697364022,
+      "title": "כונס אויר קדמי Arai Szr-vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8213593882678,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8186424819766,
+      "title": "מנגנון משקף פנימי לקסדה Arai Szr-Vas",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    },
+    {
+      "id": 8186412826678,
+      "title": "מנגנון משקף חיצוני לקסדה Arai 3/4 Szr-Vas שחור מט",
+      "issue": "משקל חסר (0 גרם) — נדרש לחישוב משלוח לפי משקל"
+    }
+  ]
+}
