@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { ProductGrid } from "@/components/product/ProductCard";
 import { ListingControls } from "./ListingControls";
 import { Pagination } from "./Pagination";
+import { reveal } from "@/components/motion/reveal";
 
 type Props = {
   title: string;
@@ -28,7 +29,7 @@ export function ListingPage({ title, intro, breadcrumbs, aside, items, total, pa
   return (
     <Container className="pb-24 pt-8">
       <Breadcrumbs items={breadcrumbs} />
-      <header className="mt-8 max-w-3xl">
+      <header {...reveal.focus} className="mt-8 max-w-3xl">
         <h1 className="font-display text-display-lg">{title}</h1>
         {intro && <div className="mt-4 text-lg leading-relaxed text-steel">{intro}</div>}
       </header>

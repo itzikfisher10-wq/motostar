@@ -145,13 +145,17 @@ test.describe("crawling", () => {
   });
 });
 
-test.describe("accessibility (axe, WCAG 2.1 AA)", () => {
+test.describe("accessibility (axe, WCAG 2.2 AA)", () => {
   for (const path of ["/", PRODUCT, "/categories/replacement-parts", "/cart", "/admin/login"]) {
     test(`${decodeURIComponent(path)} has no serious violations`, async ({ page }) => {
+      // Scroll reveals leave below-the-fold content mid-fade while the page sits at the top, and a
+      // static contrast check would score that transient frame. Audit the resting state instead
+      // (what every visitor ends up seeing, and what reduced-motion visitors always see).
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(path);
       await page.waitForLoadState("networkidle");
       // @axe-core/playwright is typed against its own playwright-core copy; the Page object is the same at runtime.
-      const results = await new AxeBuilder({ page: page as unknown as ConstructorParameters<typeof AxeBuilder>[0]["page"] }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
+      const results = await new AxeBuilder({ page: page as unknown as ConstructorParameters<typeof AxeBuilder>[0]["page"] }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
       const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
       expect(serious.map((v) => `${v.id}: ${v.nodes.length} × ${v.nodes[0]?.target.join(" ")}`)).toEqual([]);
     });

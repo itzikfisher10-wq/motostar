@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
 import { PhoneIcon, WhatsappIcon } from "@/components/ui/icons";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { reveal, revealItem } from "@/components/motion/reveal";
 
 export const metadata = buildMetadata({
   title: "צור קשר",
@@ -14,20 +15,20 @@ export default function ContactPage() {
   return (
     <Container className="pb-24 pt-8">
       <Breadcrumbs items={[{ name: "צור קשר", href: "/contact" }]} />
-      <h1 className="mt-8 font-display text-display-lg">צור קשר</h1>
+      <h1 {...reveal.focus} className="mt-8 font-display text-display-lg">צור קשר</h1>
       <p className="mt-4 max-w-xl text-lg text-steel">יש לכם שאלה על מוצר או צריכים עזרה בבחירת חלק? אנחנו משתדלים לענות לכל פנייה תוך 24 שעות בימי עבודה.</p>
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <a href={whatsappLink("היי, הגעתי מהאתר של Moto Star")} target="_blank" rel="noopener noreferrer" className="flex flex-col gap-3 rounded-[var(--radius-panel)] bg-ink p-6 text-paper hover:bg-graphite">
+      <div {...reveal.cascade} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a {...revealItem(0)} href={whatsappLink("היי, הגעתי מהאתר של Moto Star")} target="_blank" rel="noopener noreferrer" className="flex flex-col gap-3 rounded-[var(--radius-panel)] bg-ink p-6 text-paper hover:bg-graphite">
           <WhatsappIcon size={28} />
           <span className="font-display text-display-sm">וואטסאפ</span>
           <span className="text-fog">הדרך המהירה לבדיקת התאמה. שלחו יצרן, דגם ושנה.</span>
         </a>
-        <a href={`tel:${site.phoneE164}`} className="flex flex-col gap-3 rounded-[var(--radius-panel)] border border-line p-6 hover:border-ink">
+        <a {...revealItem(1)} href={`tel:${site.phoneE164}`} className="flex flex-col gap-3 rounded-[var(--radius-panel)] border border-line p-6 hover:border-ink">
           <PhoneIcon size={28} />
           <span className="font-display text-display-sm">טלפון</span>
           <span className="tabular text-lg ltr-isolate">{site.phone}</span>
         </a>
-        <a href={`mailto:${site.email}`} className="flex flex-col gap-3 rounded-[var(--radius-panel)] border border-line p-6 hover:border-ink">
+        <a {...revealItem(2)} href={`mailto:${site.email}`} className="flex flex-col gap-3 rounded-[var(--radius-panel)] border border-line p-6 hover:border-ink">
           <span className="font-display text-display-sm">אימייל</span>
           <span className="text-lg">{site.email}</span>
         </a>

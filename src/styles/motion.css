@@ -8,6 +8,8 @@
  *    scroll-driven animations (or with reduced motion) simply shows the page.
  *  - Only transform, opacity and clip-path move. Nothing animates layout.
  *  - Each home section uses a different device; see the table in docs/editing-guide.md.
+ *  - Entrances finish within a fixed scroll distance (px), not a percentage of the element:
+ *    anything already on screen when the page loads is fully visible, whatever its height.
  */
 
 /* ── Time-based keyframes (entrances, drawers) ───────────────────────────── */
@@ -47,7 +49,8 @@
   to { clip-path: inset(0 0 0 0); }
 }
 @keyframes reveal-rise {
-  from { opacity: 0; transform: translateY(2.5rem); }
+  from { opacity: 0; transform: translateY(calc(var(--rise-distance) * 1.25)); }
+  45% { opacity: 1; }
   to { opacity: 1; transform: none; }
 }
 /* Hero depth: the copy plane lifts away faster than the helmet, the light plane slower. */
@@ -58,14 +61,94 @@
 @keyframes depth-light {
   to { transform: translateY(8svh) scale(1.18); }
 }
+/* Text blocks: rise out of a soft focus, the way product pages on apple.com bring in copy. */
+@keyframes reveal-focus {
+  from { opacity: 0; transform: translateY(var(--rise-distance)); filter: blur(var(--focus-blur)); }
+  45% { opacity: 1; }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+/* Product cards in a grid: lift and settle. */
+@keyframes reveal-card {
+  from { opacity: 0; transform: translateY(calc(var(--rise-distance) * 1.4)) scale(0.96); }
+  45% { opacity: 1; }
+  to { opacity: 1; transform: none; }
+}
+/* Large panels: grow into place from slightly smaller. */
+@keyframes reveal-panel {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+/* Image inside a fixed frame drifts against the scroll (parallax). */
+@keyframes drift {
+  from { transform: translateY(var(--drift-distance)); }
+  to { transform: translateY(calc(var(--drift-distance) * -1)); }
+}
 /* Closing wordmark rises into place as the page ends. */
 @keyframes close-rise {
   from { transform: translateY(45%); opacity: 0.25; }
   to { transform: none; opacity: 1; }
 }
 
+/* Motion distances: shorter on phones, where the same travel reads as twice as far.
+   Blur and image parallax are tablet-and-up only: they cost the most on weak phones. */
+:root {
+  --rise-distance: 1.25rem;
+  --focus-blur: 0px;
+}
+@media (min-width: 768px) {
+  :root {
+    --rise-distance: 2rem;
+    --drift-distance: 6%;
+    --focus-blur: 8px;
+  }
+}
+
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
+    /* Text block: soft-focus rise as it enters. */
+    [data-reveal="focus"] {
+      animation: reveal-focus linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 220px;
+    }
+
+    /* Product grid: each card rises with its row, and the columns of a row arrive one after
+       another. The column index is worked out per breakpoint to match ProductGrid (2/3/4 columns). */
+    [data-reveal="grid"] > * {
+      --reveal-i: 0;
+      animation: reveal-card linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--reveal-i) * 28px) entry calc(180px + var(--reveal-i) * 28px);
+    }
+    [data-reveal="grid"] > :nth-child(2n) { --reveal-i: 1; }
+    @media (min-width: 768px) {
+      [data-reveal="grid"] > :nth-child(n) { --reveal-i: 0; }
+      [data-reveal="grid"] > :nth-child(3n + 2) { --reveal-i: 1; }
+      [data-reveal="grid"] > :nth-child(3n) { --reveal-i: 2; }
+    }
+    @media (min-width: 1280px) {
+      [data-reveal="grid"] > :nth-child(n) { --reveal-i: 0; }
+      [data-reveal="grid"] > :nth-child(4n + 2) { --reveal-i: 1; }
+      [data-reveal="grid"] > :nth-child(4n + 3) { --reveal-i: 2; }
+      [data-reveal="grid"] > :nth-child(4n) { --reveal-i: 3; }
+    }
+
+    /* Panel: grows into place. */
+    [data-reveal="panel"] {
+      animation: reveal-panel linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 280px;
+    }
+
+    /* Parallax image: drifts across the whole time its frame is on screen (tablet and up). */
+    @media (min-width: 768px) {
+      [data-drift] {
+        animation: drift linear both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 100%;
+      }
+    }
+
     /* Typographic wipe (category index). */
     [data-reveal="wipe"] {
       animation: reveal-wipe linear both;
@@ -81,7 +164,7 @@
     [data-reveal="cascade"] [data-reveal-item] {
       animation: reveal-rise linear both;
       animation-timeline: --cascade;
-      animation-range: entry calc(10% + var(--reveal-i, 0) * 7%) entry calc(75% + var(--reveal-i, 0) * 7%);
+      animation-range: entry calc(var(--reveal-i, 0) * 30px) entry calc(180px + var(--reveal-i, 0) * 30px);
     }
 
     /* Hero depth planes, driven by the hero section's own scroll. */

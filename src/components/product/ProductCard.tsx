@@ -3,6 +3,7 @@ import type { ProductCardData } from "@/features/catalog/types";
 import { discountPercent } from "@/lib/format/money";
 import { Price } from "@/components/ui/Price";
 import { ProductImage } from "./ProductImage";
+import { reveal } from "@/components/motion/reveal";
 
 const ORIGIN_LABEL = { ORIGINAL: "מקורי", AFTERMARKET: "חליפי", UNSPECIFIED: null } as const;
 
@@ -18,6 +19,7 @@ export function ProductCard({ product, priority = false, headingLevel = 3, tone 
   return (
     <article className="group relative flex flex-col">
       <div className={`relative aspect-square overflow-hidden rounded-[var(--radius-panel)] ${dark ? "bg-[radial-gradient(closest-side,#33363b,#141516)]" : "bg-mist"}`}>
+        <div {...reveal.drift} className="absolute inset-0">
         <div className="absolute inset-[8%] transition-transform duration-500 ease-[var(--ease-out-quart)] [@media(hover:hover)]:group-hover:scale-[1.04]">
           <ProductImage
             image={product.image}
@@ -32,6 +34,7 @@ export function ProductCard({ product, priority = false, headingLevel = 3, tone 
               className="opacity-0 transition-opacity duration-500 [@media(hover:hover)]:group-hover:opacity-100"
             />
           )}
+        </div>
         </div>
         {/* Light sweep on hover: the "change of lighting" from the brief, kept subtle. */}
         <div
@@ -63,7 +66,7 @@ export function ProductCard({ product, priority = false, headingLevel = 3, tone 
 
 export function ProductGrid({ products, priorityCount = 0 }: { products: ProductCardData[]; priorityCount?: number }) {
   return (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-9 md:grid-cols-3 xl:grid-cols-4 lg:gap-x-6">
+    <ul {...reveal.grid} className="grid grid-cols-2 gap-x-4 gap-y-9 md:grid-cols-3 xl:grid-cols-4 lg:gap-x-6">
       {products.map((p, i) => (
         <li key={p.id}>
           <ProductCard product={p} priority={i < priorityCount} />

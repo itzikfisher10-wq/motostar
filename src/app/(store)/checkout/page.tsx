@@ -7,6 +7,7 @@ import { buildCartView, readCartId } from "@/features/cart/service";
 import { getActiveShippingMethods } from "@/features/checkout/shipping";
 import { getPaymentProvider } from "@/lib/payments";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = buildMetadata({ title: "קופה", description: "השלמת הזמנה ב-Moto Star.", path: "/checkout", noindex: true });
 export const dynamic = "force-dynamic";
@@ -17,7 +18,7 @@ export default async function CheckoutPage() {
 
   return (
     <Container className="py-10 lg:py-14">
-      <h1 className="font-display text-display-md">קופה</h1>
+      <h1 {...reveal.focus} className="font-display text-display-md">קופה</h1>
       {cart.lines.length === 0 ? (
         <div className="py-16">
           <p className="text-lg">הסל ריק, אין מה לשלם עליו עדיין.</p>

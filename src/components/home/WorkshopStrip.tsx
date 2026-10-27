@@ -2,13 +2,14 @@ import Link from "next/link";
 import { site, whatsappLink } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { WhatsappIcon } from "@/components/ui/icons";
+import { reveal } from "@/components/motion/reveal";
 
 /** Who is behind the store, in their own words (from the original About page). No invented numbers. */
 export function WorkshopStrip() {
   return (
     <section aria-labelledby="workshop-title" className="py-20 lg:py-28">
       <Container className="grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
-        <div>
+        <div {...reveal.focus}>
           <h2 id="workshop-title" className="font-display text-display-lg">
             מוסכניקים שפתחו חנות
           </h2>
@@ -25,7 +26,7 @@ export function WorkshopStrip() {
             </Link>
           </div>
         </div>
-        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-panel)] border border-line bg-line text-sm">
+        <dl {...reveal.panel} className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-panel)] border border-line bg-line text-sm">
           <div className="bg-paper p-5">
             <dt className="text-steel">החזרות</dt>
             <dd className="mt-1 font-semibold">{site.returnsDays} יום ממועד הקבלה</dd>

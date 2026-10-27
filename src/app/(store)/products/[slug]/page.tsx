@@ -12,6 +12,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { sanitizeRichText, stripTags } from "@/lib/security/sanitize";
 import { formatPrice } from "@/lib/format/money";
 import { isPartNumber } from "@/lib/text/part-number";
+import { reveal } from "@/components/motion/reveal";
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -71,14 +72,14 @@ export default async function ProductPage({ params }: Props) {
         <div className="mt-20 grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <div className="space-y-14">
             {descriptionHtml && (
-              <section aria-labelledby="desc-title">
+              <section {...reveal.focus} aria-labelledby="desc-title">
                 <h2 id="desc-title" className="font-display text-display-sm">תיאור</h2>
                 <div className="prose-product mt-4 max-w-[68ch] text-[1.02rem]" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
               </section>
             )}
             {/* Helmet parts fit helmet models (shown in the spec table), not vehicles. */}
             {!isHelmetPart && (
-              <section aria-labelledby="fit-title">
+              <section {...reveal.focus} aria-labelledby="fit-title">
                 <h2 id="fit-title" className="font-display text-display-sm">התאמה לכלי</h2>
                 <div className="mt-4">
                   <FitmentList fitments={product.fitments} />
@@ -87,7 +88,7 @@ export default async function ProductPage({ params }: Props) {
             )}
           </div>
           {product.specs.length > 0 && (
-            <section aria-labelledby="spec-title">
+            <section {...reveal.focus} aria-labelledby="spec-title">
               <h2 id="spec-title" className="font-display text-display-sm">מפרט</h2>
               <dl className="mt-4 divide-y divide-line border-y border-line">
                 {product.specs.map((s) => (

@@ -4,7 +4,7 @@ import type { CategoryNode } from "@/features/catalog/types";
 import { Container } from "@/components/ui/Container";
 import { WhatsappIcon } from "@/components/ui/icons";
 import { Wordmark } from "./Wordmark";
-import { reveal } from "@/components/motion/reveal";
+import { reveal, revealItem } from "@/components/motion/reveal";
 
 const INFO_LINKS = [
   { href: "/about", label: "אודות" },
@@ -19,8 +19,8 @@ const INFO_LINKS = [
 export function Footer({ categories }: { categories: CategoryNode[] }) {
   return (
     <footer className="bg-ink text-paper">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
-        <div>
+      <Container {...reveal.cascade} className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div {...revealItem(0)}>
           <Link href="/" className="text-[2.75rem]" aria-label="MOTO STAR, לדף הבית">
             <Wordmark />
           </Link>
@@ -36,7 +36,7 @@ export function Footer({ categories }: { categories: CategoryNode[] }) {
           </a>
         </div>
 
-        <nav aria-label="קטגוריות">
+        <nav {...revealItem(1)} aria-label="קטגוריות">
           <h2 className="font-display text-[1.75rem]">קטגוריות</h2>
           <ul className="mt-3 space-y-0.5 text-sm text-fog">
             {categories.map((c) => (
@@ -48,7 +48,7 @@ export function Footer({ categories }: { categories: CategoryNode[] }) {
           </ul>
         </nav>
 
-        <nav aria-label="מידע">
+        <nav {...revealItem(2)} aria-label="מידע">
           <h2 className="font-display text-[1.75rem]">מידע</h2>
           <ul className="mt-3 space-y-0.5 text-sm text-fog">
             {INFO_LINKS.map((l) => (
@@ -59,7 +59,7 @@ export function Footer({ categories }: { categories: CategoryNode[] }) {
           </ul>
         </nav>
 
-        <div>
+        <div {...revealItem(3)}>
           <h2 className="font-display text-[1.75rem]">החנות בחולון</h2>
           <address className="mt-4 space-y-2.5 text-sm not-italic text-fog">
             <p>{site.address.street}, {site.address.city}</p>

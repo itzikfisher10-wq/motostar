@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import type { AraiShowcase } from "@/features/content/arai-showcase";
 import { formatPrice } from "@/lib/format/money";
 import { buttonClass } from "@/components/ui/Button";
+import { reveal } from "@/components/motion/reveal";
 
 /**
  * The Arai flagship sequence (home page).
@@ -282,10 +283,10 @@ function DetailTour({ stops }: { stops: AraiShowcase["stops"] }) {
         {stops.map((s, i) => (
           <article id={`arai-stop-${s.key}`} key={s.key} className="relative border-t border-line-dark">
             <div className={`mx-auto grid max-w-[1400px] items-center gap-8 px-4 py-16 sm:px-6 md:grid-cols-2 lg:px-10 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              <div className="relative mx-auto aspect-square w-full max-w-[460px] bg-[radial-gradient(closest-side,#2a2c30,transparent)]">
+              <div {...reveal.panel} className="relative mx-auto aspect-square w-full max-w-[460px] bg-[radial-gradient(closest-side,#2a2c30,transparent)]">
                 <Image src={s.products[0]!.image!.url} alt={s.products[0]!.image!.alt} fill sizes="(min-width: 768px) 460px, 90vw" className="object-contain p-4" />
               </div>
-              <div>
+              <div {...reveal.focus}>
                 <p className="text-sm text-fog">{s.label}</p>
                 <StopBody stop={s} tabbable />
               </div>

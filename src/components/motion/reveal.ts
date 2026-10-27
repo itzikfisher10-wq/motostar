@@ -6,6 +6,14 @@ import type { CSSProperties } from "react";
  * Browsers without scroll-driven animations, and reduced-motion users, see the final state.
  */
 export const reveal = {
+  /** Heading or text block: soft-focus rise as it enters. */
+  focus: { "data-reveal": "focus" },
+  /** Large panel or box: grows into place. */
+  panel: { "data-reveal": "panel" },
+  /** Image wrapper inside an overflow-hidden frame: parallax drift while on screen. */
+  drift: { "data-drift": "" },
+  /** Grid of cards (2/3/4 columns): cards rise row by row, columns staggered. Put on the <ul>. */
+  grid: { "data-reveal": "grid" },
   /** Typographic wipe from the reading start. For large display type. */
   wipe: { "data-reveal": "wipe" },
   /** Group whose items rise one after another; mark items with revealItem(i). */

@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
 import { getCategoryTree } from "@/features/catalog/queries";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { reveal, revealItem } from "@/components/motion/reveal";
 
 export const revalidate = 300;
 
@@ -17,10 +18,10 @@ export default async function CategoriesPage() {
   return (
     <Container className="pb-24 pt-8">
       <Breadcrumbs items={[{ name: "קטגוריות", href: "/categories" }]} />
-      <h1 className="mt-8 font-display text-display-lg">כל הקטגוריות</h1>
-      <div className="mt-12 grid gap-x-10 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
-        {tree.map((cat) => (
-          <section key={cat.id} aria-labelledby={`cat-${cat.slug}`}>
+      <h1 {...reveal.focus} className="mt-8 font-display text-display-lg">כל הקטגוריות</h1>
+      <div {...reveal.cascade} className="mt-12 grid gap-x-10 gap-y-14 md:grid-cols-2 xl:grid-cols-3">
+        {tree.map((cat, i) => (
+          <section key={cat.id} {...revealItem(i)} aria-labelledby={`cat-${cat.slug}`}>
             <h2 id={`cat-${cat.slug}`} className="border-b border-ink pb-3">
               <Link href={`/categories/${cat.slug}`} className="flex items-baseline justify-between gap-3 hover:text-signal">
                 <span className="font-display text-display-sm">{cat.name}</span>

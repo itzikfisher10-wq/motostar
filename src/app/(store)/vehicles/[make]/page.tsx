@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
 import { getVehicleTree } from "@/features/catalog/queries";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { reveal, revealItem } from "@/components/motion/reveal";
 
 export const revalidate = 300;
 type Props = { params: Promise<{ make: string }> };
@@ -28,11 +29,11 @@ export default async function MakePage({ params }: Props) {
   return (
     <Container className="pb-24 pt-8">
       <Breadcrumbs items={[{ name: "האופנוע שלי", href: "/vehicles" }, { name: make.name, href: `/vehicles/${make.slug}` }]} />
-      <h1 className="mt-8 font-display text-display-lg">חלקים ל-{make.name}</h1>
+      <h1 {...reveal.focus} className="mt-8 font-display text-display-lg">חלקים ל-{make.name}</h1>
       {make.models.length ? (
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {make.models.map((m) => (
-            <li key={m.id}>
+        <ul {...reveal.cascade} className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {make.models.map((m, i) => (
+            <li key={m.id} {...revealItem(i)}>
               <Link href={`/vehicles/${make.slug}/${m.slug}`} className="flex h-20 items-center justify-between rounded-[var(--radius-panel)] border border-line px-5 hover:border-ink">
                 <span className="font-display text-[2rem] leading-none ltr-isolate">{m.name}</span>
                 <span className="text-sm text-steel tabular">{m.productCount} מוצרים</span>

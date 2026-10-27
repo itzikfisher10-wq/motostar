@@ -9,7 +9,7 @@ export function AraiRail({ products }: { products: ProductCardData[] }) {
   return (
     <section aria-labelledby="arai-rail-title" className="bg-ink pb-20 pt-6 text-paper">
       <div className="mx-auto flex max-w-[1400px] items-end justify-between gap-6 px-4 sm:px-6 lg:px-10">
-        <h2 id="arai-rail-title" className="font-display text-display-md">
+        <h2 {...reveal.focus} id="arai-rail-title" className="font-display text-display-md">
           כל חלפי Arai במלאי
         </h2>
         <Link href="/brands/arai" className="shrink-0 pb-2 text-sm text-fog underline-offset-4 hover:text-paper hover:underline">
