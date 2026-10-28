@@ -46,6 +46,9 @@ const nextConfig: NextConfig = {
   // The e2e suite builds into its own folder so it never overwrites a dev/prod build.
   distDir: process.env.NEXT_DIST_DIR || ".next",
   poweredByHeader: false,
+  // Put <title>/<meta> in the <head> for every client, not only for the crawlers Next.js
+  // recognizes: some search engines and SEO tools are not on that list.
+  htmlLimitedBots: /.*/,
   agentRules: false,
   // Enables forbidden() for admin pages a role may not access (src/features/auth/guard.ts).
   experimental: { authInterrupts: true },

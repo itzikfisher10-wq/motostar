@@ -2,21 +2,24 @@ import Link from "next/link";
 import type { VehicleTree } from "@/features/catalog/queries";
 import { Container } from "@/components/ui/Container";
 import { VehiclePicker } from "@/components/vehicle/VehiclePicker";
+import { ModelsMarquee } from "./ModelsMarquee";
+import { vehicleBand } from "@/content/home";
 import { reveal, revealItem } from "@/components/motion/reveal";
 
-/** "מה הכלי שלך?" — the practical turn after the Arai sequence. */
+/** "What do you ride?": model names at poster scale, then the picker that actually finds parts. */
 export function VehicleBand({ tree }: { tree: VehicleTree }) {
   const withParts = tree
     .map((make) => ({ ...make, models: make.models.filter((m) => m.productCount > 0) }))
     .filter((m) => m.models.length > 0);
   return (
-    <section aria-labelledby="vehicle-band-title" className="bg-graphite py-16 text-paper lg:py-24">
-      <Container>
+    <section aria-labelledby="vehicle-band-title" className="overflow-hidden bg-graphite pb-16 pt-10 text-paper lg:pb-24 lg:pt-14">
+      <ModelsMarquee models={withParts.flatMap((m) => m.models.map((x) => x.name))} />
+      <Container className="mt-8">
         <div {...reveal.focus} className="max-w-2xl">
           <h2 id="vehicle-band-title" className="font-display text-display-lg">
-            מה הכלי שלך?
+            {vehicleBand.title}
           </h2>
-          <p className="mt-4 text-lg text-fog">בחרו יצרן ודגם, ותראו רק חלקים שהמוכר ציין שמתאימים לו.</p>
+          <p className="mt-4 text-lg text-fog">{vehicleBand.body}</p>
         </div>
         <div {...reveal.panel} className="mt-10">
           <VehiclePicker tree={tree} />

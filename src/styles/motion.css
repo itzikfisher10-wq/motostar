@@ -49,7 +49,7 @@
 /* Hero depth: the copy plane lifts away faster than the helmet, the light plane slower. */
 @keyframes depth-copy {
   0%, 55% { transform: none; opacity: 1; }
-  to { transform: translateY(-9svh); opacity: 0.4; }
+  to { transform: translateY(var(--depth-copy-lift)); opacity: 0.4; }
 }
 @keyframes depth-light {
   to { transform: translateY(8svh) scale(1.18); }
@@ -73,12 +73,20 @@
   --reveal-step: 90ms;
   --rise-distance: 1.75rem;
   --focus-blur: 0px;
+  /* Phones stack the helmet above the copy, so the copy only fades there (lifting it would
+     slide it under the helmet). */
+  --depth-copy-lift: 0px;
 }
 @media (min-width: 768px) {
   :root {
     --rise-distance: 3rem;
     --drift-distance: 6%;
     --focus-blur: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --depth-copy-lift: -9svh;
   }
 }
 
@@ -178,6 +186,19 @@
       animation-range: entry 0% entry 100%;
     }
   }
+}
+
+/* ── Manifesto: words lit by the headlight beam (components/home/Manifesto.tsx) ── */
+.manifesto-word {
+  transition: color 420ms var(--reveal-ease);
+}
+.manifesto-word--last {
+  color: var(--color-signal-bright);
+}
+/* Unlit words stay at 3.4:1 on black: still clearly "off" next to the lit white, and readable
+   (large text, WCAG AA). */
+[data-armed] .manifesto-word:not([data-lit]) {
+  color: #63676e;
 }
 
 /* Global safety net: users who ask for less motion get none. */

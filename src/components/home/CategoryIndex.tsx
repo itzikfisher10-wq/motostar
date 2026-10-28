@@ -1,3 +1,4 @@
+// Not used by the home page since the shelf redesign (ShelfPan.tsx). Kept for reuse; safe to delete.
 import Link from "next/link";
 import type { CategoryNode } from "@/features/catalog/types";
 import { Container } from "@/components/ui/Container";

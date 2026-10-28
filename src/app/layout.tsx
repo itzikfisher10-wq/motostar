@@ -6,7 +6,7 @@ import { isIndexableSite, siteUrl } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl("/")),
-  title: { default: `${site.name} | חלקי חילוף, אביזרים וציוד רכיבה לאופנועים`, template: `%s | ${site.name}` },
+  title: { default: `חלקי חילוף לאופנועים וקטנועים בחולון | ${site.name}`, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
   formatDetection: { telephone: false },

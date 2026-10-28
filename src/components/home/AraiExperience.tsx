@@ -7,6 +7,7 @@ import type { AraiShowcase } from "@/features/content/arai-showcase";
 import { formatPrice } from "@/lib/format/money";
 import { buttonClass } from "@/components/ui/Button";
 import { reveal } from "@/components/motion/reveal";
+import { headerHeight, scenePriority, whenNear } from "@/components/motion/useScrollScene";
 
 /**
  * The Arai flagship sequence (home page).
@@ -47,7 +48,7 @@ function AraiHero({ data }: { data: AraiShowcase }) {
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let ctx: { revert: () => void } | undefined;
     let cancelled = false;
-    void (async () => {
+    const cancelNear = whenNear(el, () => void (async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       if (cancelled) return;
@@ -55,11 +56,14 @@ function AraiHero({ data }: { data: AraiShowcase }) {
       ctx = gsap.context(() => {
         const visor = el.querySelector("[data-visor]");
         const copy = el.querySelector("[data-hero-copy]");
-        const tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 0.6 } });
+        const tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: 0.6, refreshPriority: scenePriority(el) } });
         tl.to(visor, { yPercent: -HERO_LIFT * 100, rotateX: 18, scale: 0.92, ease: "none" }, 0).to(copy, { yPercent: -25, opacity: 0, ease: "none" }, 0);
       }, el);
-    })();
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    })());
     return () => {
+      cancelNear();
       cancelled = true;
       ctx?.revert();
     };
@@ -208,6 +212,7 @@ function DetailTour({ stops }: { stops: AraiShowcase["stops"] }) {
             end: () => `+=${window.innerHeight * TOUR_SCROLL_PER_STOP * n}`,
             pin: "[data-tour-pin]",
             scrub: 0.5,
+            refreshPriority: scenePriority(el),
             snap: { snapTo: 1 / (n - 1 || 1), inertia: false, duration: { min: 0.2, max: 0.6 }, ease: "power2.out", delay: 0.1 },
             onUpdate: (self) => setActive(Math.min(n - 1, Math.round(self.progress * (n - 1)))),
           },
@@ -217,13 +222,18 @@ function DetailTour({ stops }: { stops: AraiShowcase["stops"] }) {
             .to(images[i]!, { opacity: 1, scale: 1, yPercent: 0, ease: "power2.out", duration: 0.5 }, i - 1 + 0.5);
         }
       }, el);
+      ScrollTrigger.sort();
       ScrollTrigger.refresh();
     };
 
-    void setup();
-    mq.addEventListener("change", setup);
+    // Built when the section comes near, so GSAP stays out of the page load.
+    const cancelNear = whenNear(el, () => {
+      void setup();
+      mq.addEventListener("change", setup);
+    });
     return () => {
       cancelled = true;
+      cancelNear();
       mq.removeEventListener("change", setup);
       ctx?.revert();
     };
@@ -298,9 +308,6 @@ function DetailTour({ stops }: { stops: AraiShowcase["stops"] }) {
   );
 }
 
-function headerHeight() {
-  return document.querySelector<HTMLElement>("body > header, header.sticky")?.offsetHeight ?? 0;
-}
 
 function StopBody({ stop, tabbable }: { stop: AraiShowcase["stops"][number]; tabbable: boolean }) {
   return (

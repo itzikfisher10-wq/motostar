@@ -144,7 +144,7 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
         {isPartNumber(variant.sku) && hasOptions && <p className="mt-4 text-xs text-steel">מק״ט: <span className="ltr-isolate">{variant.sku}</span></p>}
 
         <ul className="mt-8 space-y-2 border-t border-line pt-6 text-sm text-steel">
-          <li>משלוח לכל הארץ. דמי המשלוח מחושבים בקופה, לפני התשלום.</li>
+          <li>איסוף עצמי מחולון. אפשרויות המשלוח ומחירן מוצגים בקופה, לפני התשלום.</li>
           <li>איסוף עצמי מ{site.address.street}, {site.address.city}, בתיאום מראש.</li>
           <li>החזרה תוך {site.returnsDays} יום, במוצר חדש באריזתו המקורית.</li>
         </ul>

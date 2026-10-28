@@ -14,7 +14,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   if (!cat) return {};
   const { isFiltered, params: p } = parseListingParams(await searchParams);
   const title = cat.seoTitle ?? (cat.parent ? `${cat.node.name} | ${cat.parent.name}` : cat.node.name);
-  const description = cat.seoDescription ?? cat.node.description ?? `${cat.node.name} לאופנועים וקטנועים: ${cat.node.productCount} מוצרים במלאי של Moto Star בחולון, עם משלוח לכל הארץ.`;
+  const description = cat.seoDescription ?? cat.node.description ?? `${cat.node.name} לאופנועים וקטנועים: ${cat.node.productCount} מוצרים בקטלוג של Moto Star, חנות חלקים של מוסכניקים בחולון.`;
   return buildMetadata({
     title: p.page && p.page > 1 ? `${title} (עמוד ${p.page})` : title,
     description,

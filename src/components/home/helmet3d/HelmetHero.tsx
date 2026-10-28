@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { buttonClass } from "@/components/ui/Button";
@@ -118,15 +119,14 @@ export function HelmetHero({ title, body, primaryCta, secondaryCta, illustration
           </div>
           <figure className="relative order-1 m-0 lg:order-2">
             {/* Still frame of the same 3D helmet: shown until (or instead of) the live one. */}
-            {/* eslint-disable-next-line @next/next/no-img-element -- static decorative poster, sized by CSS */}
-            <img
+            <Image
               src="/images/hero-helmet.webp"
               alt=""
               aria-hidden="true"
               width={1260}
               height={1260}
-              decoding="async"
-              fetchPriority="low"
+              priority
+              sizes="(min-width: 1024px) 78svh, 46svh"
               className={`pointer-events-none absolute inset-x-0 top-0 mx-auto aspect-square w-full max-h-[46svh] max-w-[46svh] object-contain transition-opacity duration-1000 lg:max-h-[78svh] lg:max-w-[78svh] ${ready ? "opacity-0" : "opacity-100"}`}
             />
             <canvas
