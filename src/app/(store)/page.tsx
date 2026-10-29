@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import { AraiExperience } from "@/components/home/AraiExperience";
-import { HelmetHero } from "@/components/home/helmet3d/HelmetHero";
-import { closing, deals as dealsCopy, homeHero, manifesto, shelf } from "@/content/home";
 import { AraiRail } from "@/components/home/AraiRail";
-import { ClosingPlate } from "@/components/home/ClosingPlate";
-import { Manifesto } from "@/components/home/Manifesto";
-import { ShelfPan, type ShelfItem } from "@/components/home/ShelfPan";
+import { CategoryAccordion, type AccordionCategory } from "@/components/home/CategoryAccordion";
+import { HelmetHero } from "@/components/home/helmet3d/HelmetHero";
+import { ModelsMarquee } from "@/components/home/ModelsMarquee";
 import { ProductRail } from "@/components/home/ProductRail";
-import { VehicleBand } from "@/components/home/VehicleBand";
+import { VehicleFinder } from "@/components/home/VehicleFinder";
 import { WorkshopStrip } from "@/components/home/WorkshopStrip";
-import { site } from "@/config/site";
+import { CardIcon, ReturnIcon, StoreIcon, WrenchIcon } from "@/components/ui/icons";
+import { categoriesBlock, deals as dealsCopy, homeHero, vehicleBand } from "@/content/home";
+import { site, whatsappLink } from "@/config/site";
 import { findProducts, getCategoryTree, getVehicleTree } from "@/features/catalog/queries";
 import { getAraiShowcase } from "@/features/content/arai-showcase";
 import { siteUrl } from "@/lib/seo/metadata";
 
 /**
- * Home page. Section order follows the scroll brief (docs/home-brief.md); copy lives in
- * src/content/home.ts. Every count, model and example product comes from the live catalog.
+ * Home page. Layout modeled on the store's approved reference design: dark hero with glass
+ * facts → "what do you ride?" → Arai → deals → categories → who we are.
+ * Sections after the hero are rounded sheets that ride up over the one before ([data-sheet]).
+ * Copy lives in src/content/home.ts. Every count, model and product comes from the live catalog;
+ * every fact on the glass cards comes from src/config/site.ts.
  */
 export const revalidate = 300;
 
@@ -26,47 +29,81 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [arai, vehicles, categories, deals, all] = await Promise.all([
+  const [arai, vehicles, categories, deals, onSale, all] = await Promise.all([
     getAraiShowcase(),
     getVehicleTree(),
     getCategoryTree(),
     findProducts({ onSale: true, onlyAvailable: true, pageSize: 12 }),
+    // Same filter as the /deals page, so the number on the button matches the page it opens.
+    findProducts({ onSale: true, pageSize: 1 }),
     findProducts({ pageSize: 1 }),
   ]);
-  const totalProducts = all.total;
 
   // Hero facts come from the live catalog, so they are always true.
   const makes = vehicles.filter((m) => m.models.some((x) => x.productCount > 0)).map((m) => m.name);
   const listFormat = new Intl.ListFormat("he", { style: "long", type: "conjunction" });
-  const heroBody = homeHero.body.replace("{count}", String(totalProducts)).replace("{makes}", listFormat.format(makes));
+  const heroBody = homeHero.body.replace("{count}", String(all.total)).replace("{makes}", listFormat.format(makes));
 
-  // The shelf: leaf categories with at least two products, largest first, each with one real product.
-  const leaves = categories.flatMap((c) => (c.children.length ? c.children : [c])).filter((c) => c.productCount >= 2);
-  leaves.sort((a, b) => b.productCount - a.productCount);
-  // Fetched in parallel, then each category takes the first product not already shown, so a
-  // product filed under two categories never appears twice on the shelf.
-  const candidates = await Promise.all(leaves.slice(0, 8).map((c) => findProducts({ categorySlug: c.slug, pageSize: 8 })));
+  const trust = [
+    { icon: <StoreIcon size={20} />, title: "איסוף עצמי בחולון", note: `${site.address.street}, בתיאום` },
+    { icon: <ReturnIcon size={20} />, title: `החזרה תוך ${site.returnsDays} יום`, note: "ממועד קבלת המוצר" },
+    { icon: <CardIcon size={20} />, title: "תשלום מאובטח", note: `ב${site.paymentMethods.join(", ")}` },
+    { icon: <WrenchIcon size={20} />, title: "ייעוץ ממוסכניקים", note: "בוואטסאפ ובטלפון" },
+  ];
+
+  // Categories for the accordion: top level with products, sub-categories with products,
+  // and one real product photo per category.
+  const tops = categories.filter((c) => c.productCount > 0);
+  const photos = await Promise.all(tops.map((c) => findProducts({ categorySlug: c.slug, pageSize: 6 })));
   const used = new Set<string>();
-  const shelfItems: ShelfItem[] = [];
-  leaves.slice(0, 8).forEach((c, i) => {
-    const example = candidates[i]!.items.find((p) => p.image && !used.has(p.id));
-    if (!example?.image) return;
-    used.add(example.id);
-    shelfItems.push({ slug: c.slug, name: c.name, count: c.productCount, example: { title: example.title, image: { url: example.image.url, alt: example.image.alt } } });
+  const accordion: AccordionCategory[] = tops.map((c, i) => {
+    const pick = photos[i]!.items.find((p) => p.image && !used.has(p.id));
+    if (pick) used.add(pick.id);
+    return {
+      slug: c.slug,
+      name: c.name,
+      count: c.productCount,
+      children: c.children.filter((ch) => ch.productCount > 0).map((ch) => ({ slug: ch.slug, name: ch.name, count: ch.productCount })),
+      image: pick?.image ? { url: pick.image.url, alt: pick.image.alt } : null,
+    };
   });
+  accordion.sort((a, b) => b.count - a.count);
+
+  const modelNames = vehicles.flatMap((m) => m.models.filter((x) => x.productCount > 0).map((x) => x.name));
 
   return (
     <>
-      <HelmetHero {...homeHero} body={heroBody} />
-      <Manifesto title={manifesto.title} lines={manifesto.lines} />
-      <ShelfPan copy={shelf} items={shelfItems} />
-      {/* The store's main task: parts that fit the visitor's bike. */}
-      <VehicleBand tree={vehicles} />
-      <AraiExperience data={arai} />
-      <AraiRail products={arai.all} />
-      <ProductRail id="deals-title" title={dealsCopy.title} intro={dealsCopy.intro} products={deals.items} href="/deals" hrefLabel={`לכל המבצעים (${deals.total})`} />
+      <HelmetHero
+        badge={homeHero.badge}
+        title={homeHero.title}
+        phrases={homeHero.phrases}
+        body={heroBody}
+        primaryCta={homeHero.primaryCta}
+        dealsCta={onSale.total ? { label: homeHero.dealsCta.label.replace("{count}", String(onSale.total)), href: homeHero.dealsCta.href } : null}
+        araiCta={homeHero.araiCta}
+        whatsapp={{ label: homeHero.whatsappCta, href: whatsappLink("היי, הגעתי מהאתר של Moto Star") }}
+        trust={trust}
+        illustrationNote={homeHero.illustrationNote}
+      />
+      <VehicleFinder tree={vehicles} copy={vehicleBand} />
+      {/* The dark stretch: model names drift with the scroll, then the Arai tour and its parts. */}
+      <div data-sheet className="bg-ink pt-6 text-paper lg:pt-10">
+        <ModelsMarquee models={modelNames} />
+        <AraiExperience data={arai} />
+        <AraiRail products={arai.all} />
+      </div>
+      <ProductRail
+        sheet
+        id="deals-title"
+        eyebrow={dealsCopy.eyebrow}
+        title={dealsCopy.title}
+        intro={dealsCopy.intro}
+        products={deals.items}
+        href="/deals"
+        hrefLabel={`לכל המבצעים (${onSale.total})`}
+      />
+      <CategoryAccordion copy={categoriesBlock} categories={accordion} />
       <WorkshopStrip />
-      <ClosingPlate copy={closing} />
     </>
   );
 }

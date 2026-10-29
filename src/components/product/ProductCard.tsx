@@ -17,8 +17,14 @@ export function ProductCard({ product, priority = false, headingLevel = 3, tone 
   const Heading = `h${headingLevel}` as const;
   const origin = ORIGIN_LABEL[product.origin];
   return (
-    <article className="group relative flex flex-col">
-      <div className={`relative aspect-square overflow-hidden rounded-[var(--radius-panel)] ${dark ? "bg-[radial-gradient(closest-side,#33363b,#141516)]" : "bg-mist"}`}>
+    <article
+      className={`group relative flex h-full flex-col rounded-[var(--radius-panel)] p-2.5 transition-[transform,box-shadow] duration-300 ease-[var(--ease-out-quart)] active:scale-[0.985] [@media(hover:hover)]:hover:-translate-y-1 ${
+        dark
+          ? "bg-graphite shadow-[inset_0_1px_0_rgb(255_255_255/0.08),0_0_0_1px_rgb(255_255_255/0.06)]"
+          : "bg-paper shadow-[0_0_0_1px_rgb(10_10_10/0.06),0_10px_28px_-16px_rgb(10_10_10/0.22)] [@media(hover:hover)]:hover:shadow-[0_0_0_1px_rgb(10_10_10/0.06),0_22px_40px_-18px_rgb(10_10_10/0.3)]"
+      }`}
+    >
+      <div className={`relative aspect-square overflow-hidden rounded-[14px] ${dark ? "bg-[radial-gradient(closest-side,#33363b,#141516)]" : "bg-mist"}`}>
         <div {...reveal.drift} className="absolute inset-0">
         <div className="absolute inset-[8%] transition-transform duration-500 ease-[var(--ease-out-quart)] [@media(hover:hover)]:group-hover:scale-[1.04]">
           <ProductImage
@@ -42,19 +48,19 @@ export function ProductCard({ product, priority = false, headingLevel = 3, tone 
           className={`pointer-events-none absolute inset-0 ${dark ? "bg-[linear-gradient(115deg,transparent_35%,rgba(255,255,255,0.12)_50%,transparent_65%)]" : "bg-[linear-gradient(115deg,transparent_35%,rgba(255,255,255,0.55)_50%,transparent_65%)]"} opacity-0 translate-x-[30%] transition-[opacity,translate] duration-700 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-hover:-translate-x-[30%]`}
         />
         <div className="absolute top-3 start-3 flex flex-col items-start gap-1.5">
-          {off && <span className="rounded-sm bg-signal px-2 py-0.5 text-xs font-semibold text-paper tabular">‎-{off}%</span>}
-          {!product.isAvailable && <span className={`rounded-sm px-2 py-0.5 text-xs font-semibold ${dark ? "bg-paper text-ink" : "bg-ink text-paper"}`}>אזל במלאי</span>}
+          {off && <span className="rounded-full bg-signal px-2.5 py-1 text-xs font-bold leading-none text-paper tabular">‎-{off}%</span>}
+          {!product.isAvailable && <span className={`rounded-full px-2.5 py-1 text-xs font-bold leading-none ${dark ? "bg-paper text-ink" : "bg-ink text-paper"}`}>אזל במלאי</span>}
         </div>
       </div>
-      <div className="mt-3 flex flex-1 flex-col gap-1">
+      <div className="flex flex-1 flex-col gap-1 px-1.5 pb-1.5 pt-3">
         {(product.brandName || origin) && (
-          <p className={`flex gap-2 text-xs ${dark ? "text-fog" : "text-steel"}`}>
+          <p className={`flex gap-2 text-xs font-bold ${dark ? "text-fog" : "text-steel"}`}>
             {product.brandName && <span>{product.brandName}</span>}
             {origin && <span>{origin}</span>}
           </p>
         )}
-        <Heading className="text-[0.95rem] font-medium leading-snug line-clamp-2">
-          <Link href={`/products/${product.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-signal focus-visible:after:rounded-[var(--radius-panel)]">
+        <Heading className="text-[0.95rem] font-bold leading-snug line-clamp-2">
+          <Link href={`/products/${product.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-signal focus-visible:after:rounded-[var(--radius-panel)] after:rounded-[var(--radius-panel)]">
             {product.title}
           </Link>
         </Heading>
@@ -66,7 +72,7 @@ export function ProductCard({ product, priority = false, headingLevel = 3, tone 
 
 export function ProductGrid({ products, priorityCount = 0 }: { products: ProductCardData[]; priorityCount?: number }) {
   return (
-    <ul {...reveal.grid} className="grid grid-cols-2 gap-x-4 gap-y-9 md:grid-cols-3 xl:grid-cols-4 lg:gap-x-6">
+    <ul {...reveal.grid} className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4 lg:gap-5">
       {products.map((p, i) => (
         <li key={p.id}>
           <ProductCard product={p} priority={i < priorityCount} />

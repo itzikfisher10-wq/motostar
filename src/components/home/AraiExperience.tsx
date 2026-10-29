@@ -75,7 +75,7 @@ function AraiHero({ data }: { data: AraiShowcase }) {
   return (
     <section ref={root} aria-labelledby="arai-hero-title" className="relative isolate overflow-hidden">
       {/* Directional light: one soft key light from above-left, no glow effects. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_30%_35%,#2a2c30_0%,#0d0d0e_55%,#000_100%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_30%_35%,#2a2c30_0%,#0d0d0e_55%,#0a0a0a_100%)]" />
       <div className="mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1400px] items-center gap-6 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:px-10 lg:pb-10">
         <div data-hero-copy className="relative z-10 order-2 lg:order-1">
           <h2 id="arai-hero-title" className="font-display text-display-lg">
@@ -258,7 +258,7 @@ function DetailTour({ stops }: { stops: AraiShowcase["stops"] }) {
 
       {/* Desktop: pinned stage. Rendered for everyone; enhanced by GSAP on large screens. */}
       <div data-tour-pin className="relative hidden h-[calc(100svh-var(--header-h,6rem))] overflow-hidden lg:motion-safe:block">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_32%_50%,#26282c_0%,#0b0b0c_60%,#000_100%)]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_32%_50%,#26282c_0%,#0b0b0c_60%,#0a0a0a_100%)]" />
         <div className="relative mx-auto grid h-full max-w-[1400px] grid-cols-[minmax(0,6fr)_minmax(0,5fr)] items-center gap-12 px-10">
           <div className="relative order-2 aspect-square w-full max-w-[640px] justify-self-center">
             {stops.map((s, i) => (

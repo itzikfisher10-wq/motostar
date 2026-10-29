@@ -11,7 +11,7 @@
 | ולידציה | Zod 4 | כל קלט מהדפדפן נבדק בשרת |
 | עיצוב | Tailwind CSS 4 | טוקנים במקום אחד (`src/styles/globals.css`) |
 | אנימציה | GSAP + ScrollTrigger, CSS | גלילה קולנועית באזור Arai; מיקרו-אינטראקציות ב-CSS |
-| פונטים | next/font/local (Karantina, IBM Plex Sans Hebrew) | טעינה מוקדמת ו-fallback מותאם — בלי קפיצות טקסט |
+| פונטים | next/font/local (Heebo, ארבעה משקלים) | טעינה מוקדמת ו-fallback מותאם — בלי קפיצות טקסט |
 | תשלומים | PayPlus (דף תשלום מאובטח) | ספק ישראלי; פרטי הכרטיס לא עוברים בשרת שלנו |
 | אימייל | Resend (או מצב log) | תור `email_outbox` — אף מייל לא הולך לאיבוד אם הספק נופל |
 | אחסון קבצים | דיסק מקומי או Vercel Blob | ממשק `StorageAdapter`, ניתן להחלפה |

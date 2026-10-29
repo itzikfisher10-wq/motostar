@@ -11,13 +11,26 @@ import { SearchButton } from "@/components/search/SearchOverlay";
 import { Wordmark } from "./Wordmark";
 import { MyBikeChip } from "@/components/vehicle/MyBikeChip";
 
+const NAV = [
+  { href: "/vehicles", label: "האופנוע שלי" },
+  { href: "/brands/arai", label: "קסדות Arai" },
+  { href: "/deals", label: "מבצעים" },
+  { href: "/about", label: "אודות" },
+];
+
+const navLink = "inline-flex h-9 items-center rounded-full px-3.5 font-medium text-paper/85 transition-[background-color,color,transform] duration-150 hover:bg-white/10 hover:text-paper active:scale-[0.97]";
+
+/**
+ * Site header. The thin info strip scrolls away; the bar below it stays, as a dark glass
+ * material that content scrolls under (globals.css → .glass-bar). Its height is --header-h.
+ */
 export async function Header({ categories }: { categories: CategoryNode[] }) {
   const announcement = await getContent("announcement");
   return (
-    <header className="sticky top-0 z-40 bg-ink text-paper">
-      <div className="border-b border-line-dark text-xs text-fog">
-        <Container className="flex h-8 items-center justify-between gap-4">
-          <p className="flex min-w-0 gap-4 truncate">
+    <>
+      <div className="bg-ink text-xs text-fog">
+        <Container className="flex h-9 items-center justify-between gap-4">
+          <p className="flex min-w-0 items-center gap-4 truncate">
             {announcement.enabled && (announcement.href ? <Link href={announcement.href} className="hover:text-paper">{announcement.text}</Link> : <span>{announcement.text}</span>)}
             {site.hours.map((h) => (
               <span key={h.days} className="hidden md:inline">
@@ -25,45 +38,39 @@ export async function Header({ categories }: { categories: CategoryNode[] }) {
               </span>
             ))}
           </p>
-          <a href={`tel:${site.phoneE164}`} className="hidden items-center gap-1.5 hover:text-paper sm:flex">
+          <a href={`tel:${site.phoneE164}`} className="hidden items-center gap-1.5 font-medium hover:text-paper sm:flex">
             <PhoneIcon size={14} />
             <span className="tabular ltr-isolate">{site.phone}</span>
           </a>
         </Container>
       </div>
-      <Container className="flex h-16 items-center gap-2 lg:gap-6">
-        <MobileNav categories={categories} />
-        <Link href="/" className="text-[2rem] lg:text-[2.25rem]" aria-label="MOTO STAR, לדף הבית">
-          <Wordmark />
-        </Link>
-        <nav aria-label="ניווט ראשי" className="hidden lg:block">
-          <ul className="flex items-center gap-1 text-[0.95rem]">
-            <li>
-              <CategoryMenu categories={categories} />
-            </li>
-            <li>
-              <Link href="/vehicles" className="rounded-md px-3 py-2 hover:bg-graphite">
-                האופנוע שלי
-              </Link>
-            </li>
-            <li>
-              <Link href="/brands/arai" className="rounded-md px-3 py-2 hover:bg-graphite">
-                Arai
-              </Link>
-            </li>
-            <li>
-              <Link href="/deals" className="rounded-md px-3 py-2 hover:bg-graphite">
-                מבצעים
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="ms-auto flex items-center gap-1">
-          <MyBikeChip />
-          <SearchButton />
-          <CartButton />
-        </div>
-      </Container>
-    </header>
+      <header className="glass-bar sticky top-0 z-40 text-paper">
+        <Container className="flex h-[var(--header-h)] items-center gap-2 lg:gap-5">
+          <MobileNav categories={categories} />
+          <Link href="/" className="text-[1.6rem] lg:text-[1.75rem]" aria-label="MOTO STAR, לדף הבית">
+            <Wordmark />
+          </Link>
+          <nav aria-label="ניווט ראשי" className="hidden lg:block">
+            <ul className="flex items-center gap-0.5 text-[0.95rem]">
+              <li>
+                <CategoryMenu categories={categories} triggerClassName={navLink} />
+              </li>
+              {NAV.map((n) => (
+                <li key={n.href}>
+                  <Link href={n.href} className={navLink}>
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="ms-auto flex items-center gap-1">
+            <MyBikeChip />
+            <SearchButton />
+            <CartButton />
+          </div>
+        </Container>
+      </header>
+    </>
   );
 }

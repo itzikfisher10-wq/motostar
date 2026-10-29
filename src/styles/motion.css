@@ -201,6 +201,100 @@
   color: #63676e;
 }
 
+/* ── Home hero (components/home/helmet3d/HelmetHero.tsx) ────────────────────
+   The rotating red line under the headline: each phrase rises in, the previous one leaves
+   upward, and a hand-drawn underline is drawn beneath it. */
+.hero-phrase {
+  transition:
+    transform 620ms cubic-bezier(0.2, 0.9, 0.25, 1),
+    opacity 420ms ease;
+}
+.hero-phrase[data-state="wait"] { opacity: 0; transform: translateY(105%); }
+.hero-phrase[data-state="out"] { opacity: 0; transform: translateY(-105%); }
+.hero-underline path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 700ms cubic-bezier(0.65, 0, 0.35, 1) 180ms;
+}
+.hero-phrase[data-state="in"] .hero-underline path { stroke-dashoffset: 0; }
+
+/* Desktop with motion: the stage pins while the helmet turns; then the next section slides up
+   over it like a sheet and the stage recedes (scales back, rounds, dims). The script only sets
+   --p (0..1, scroll progress through the hero); --q is the last stretch of it. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 600px) {
+  [data-home-hero] {
+    height: 185svh;
+    --q: clamp(0, calc((var(--p, 0) - 0.5) / 0.5), 1);
+  }
+  [data-home-hero-stage] {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    transform-origin: 50% 30%;
+    transform: scale(calc(1 - var(--q) * 0.07));
+    border-radius: calc(var(--q) * 2rem);
+  }
+  [data-home-hero-copy] {
+    transform: translateY(calc(var(--p, 0) * -7svh));
+    opacity: calc(1 - var(--q) * 0.85);
+  }
+  [data-home-hero-trust] {
+    transform: translateY(calc(var(--p, 0) * -4svh));
+    opacity: calc(1 - var(--q));
+  }
+  [data-home-hero-dim] {
+    opacity: calc(var(--q) * 0.6);
+  }
+  /* The sheet that follows the hero starts 40svh early, so it rides up over the pinned stage. */
+  [data-home-hero] + [data-sheet] {
+    margin-top: -40svh;
+  }
+}
+
+/* Sheets: home sections after the hero are rounded panels that overlap the one before. */
+[data-sheet] {
+  position: relative;
+  z-index: 10;
+  margin-top: -2rem;
+  border-radius: 2rem 2rem 0 0;
+}
+@media (min-width: 1024px) {
+  [data-sheet] { border-radius: 2.5rem 2.5rem 0 0; }
+}
+/* Sheets far down the page are not laid out or painted until they come near the screen.
+   Only sections below the pinned Arai tour use this, so the pins above are always measured
+   against real heights. */
+[data-sheet][data-lazy-paint] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Category accordion (components/home/CategoryAccordion.tsx): panels share the row; the open
+   one takes most of it. flex-grow is the one layout property animated on the site: five
+   boxes, on hover, desktop only. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-accordion-panel] {
+    transition:
+      flex-grow 650ms cubic-bezier(0.25, 1, 0.5, 1),
+      background-color 300ms ease;
+  }
+  [data-accordion-panel] [data-accordion-body] {
+    transition:
+      opacity 420ms ease 120ms,
+      transform 620ms cubic-bezier(0.25, 1, 0.5, 1) 80ms;
+  }
+  [data-accordion-panel]:not([data-open]) [data-accordion-body] {
+    transform: translateY(14px);
+  }
+}
+[data-accordion-panel]:not([data-open]) [data-accordion-body] { opacity: 0; }
+
+/* A panel or list that appears after a choice (vehicle models): rises in. */
+@keyframes sheet-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
 /* Global safety net: users who ask for less motion get none. */
 @media (prefers-reduced-motion: reduce) {
   *,

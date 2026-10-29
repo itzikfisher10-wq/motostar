@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
-import { karantina, plex } from "@/styles/fonts";
+import { heebo } from "@/styles/fonts";
 import { site } from "@/config/site";
 import { isIndexableSite, siteUrl } from "@/lib/seo/metadata";
 
@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${plex.variable} ${karantina.variable}`}>
+    <html lang="he" dir="rtl" className={heebo.variable}>
       <body className="min-h-dvh antialiased">{children}</body>
     </html>
   );

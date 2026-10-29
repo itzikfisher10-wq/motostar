@@ -7,7 +7,7 @@ import type { CategoryNode } from "@/features/catalog/types";
 import { Container } from "@/components/ui/Container";
 
 /** Desktop mega-menu: every top category with its sub-categories, one click away. */
-export function CategoryMenu({ categories }: { categories: CategoryNode[] }) {
+export function CategoryMenu({ categories, triggerClassName = "" }: { categories: CategoryNode[]; triggerClassName?: string }) {
   const [open, setOpen] = useRouteScopedOpen();
   const id = useId();
   const wrap = useRef<HTMLDivElement>(null);
@@ -30,15 +30,15 @@ export function CategoryMenu({ categories }: { categories: CategoryNode[] }) {
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen(!open)}
-        className={`rounded-md px-3 py-2 hover:bg-graphite ${open ? "bg-graphite" : ""}`}
+        className={`${triggerClassName} ${open ? "bg-white/10 text-paper" : ""}`}
       >
         קטגוריות
       </button>
-      <div id={id} hidden={!open} className="absolute inset-x-0 top-full border-t border-line-dark bg-ink pb-10 pt-8 shadow-[0_30px_60px_rgba(0,0,0,0.35)]">
+      <div id={id} hidden={!open} className="glass-bar absolute inset-x-0 top-full pb-10 pt-8 shadow-[0_30px_60px_rgba(0,0,0,0.35)] motion-safe:animate-fade-in">
         <Container className="grid grid-cols-5 gap-8">
           {categories.map((cat) => (
             <div key={cat.id}>
-              <Link href={`/categories/${cat.slug}`} className="font-display text-[2rem] leading-none hover:text-signal">
+              <Link href={`/categories/${cat.slug}`} className="text-lg font-black leading-none hover:text-signal-bright">
                 {cat.name}
               </Link>
               <ul className="mt-3 space-y-0.5 text-sm text-fog">

@@ -24,9 +24,9 @@ export function ModelsMarquee({ models }: { models: string[] }) {
   const rows = [models.slice(0, half), models.slice(half)];
 
   return (
-    <div ref={root} aria-hidden="true" className="select-none overflow-hidden py-6" dir="ltr">
+    <div ref={root} aria-hidden="true" className="select-none overflow-hidden py-4" dir="ltr">
       {rows.map((row, r) => (
-        <div key={r} data-line className={`flex w-max items-center gap-[0.35em] whitespace-nowrap font-display text-[clamp(3.5rem,2rem+8vw,10rem)] leading-[0.95] ${r ? "text-[#8a8f97]" : "text-paper"}`}>
+        <div key={r} data-line className={`flex w-max items-center gap-[0.35em] whitespace-nowrap font-display text-[clamp(2.6rem,1.4rem+5.5vw,6.5rem)] leading-[1.05] ${r ? "text-[#8a8f97]" : "text-paper"}`}>
           {[...row, ...row, ...row].map((m, i) => (
             <span key={i} className="flex items-center gap-[0.35em]">
               <span>{m}</span>

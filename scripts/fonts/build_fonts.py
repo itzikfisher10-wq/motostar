@@ -16,8 +16,7 @@ from fontTools.ttLib import TTFont
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "src" / "styles" / "fonts"
 FONTS = {
-    "ibm-plex-sans-hebrew": ("ibm-plex-sans-hebrew", [400, 500, 600]),
-    "karantina": ("karantina", [400, 700]),
+    "heebo": ("heebo", [400, 500, 700, 900]),
 }
 
 OUT.mkdir(parents=True, exist_ok=True)

@@ -9,7 +9,7 @@ export function MyBikeChip() {
   const bike = useMyBike();
   if (!bike) return null;
   return (
-    <Link href={myBikeHref(bike)} className="hidden h-9 items-center gap-2 rounded-full border border-line-dark px-3 text-sm hover:border-fog md:flex">
+    <Link href={myBikeHref(bike)} className="hidden h-9 items-center gap-2 glass-dark rounded-full px-3.5 text-sm font-medium hover:bg-white/15 md:flex">
       <BikeIcon size={18} />
       <span className="ltr-isolate">
         {bike.makeName} {bike.modelName}

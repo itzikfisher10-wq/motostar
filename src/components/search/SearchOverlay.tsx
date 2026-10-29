@@ -25,7 +25,7 @@ export function SearchButton() {
   }, [setOpen]);
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-graphite" aria-label="חיפוש מוצרים">
+      <button type="button" onClick={() => setOpen(true)} className="flex h-11 w-11 items-center justify-center rounded-full transition-[background-color,transform] duration-150 hover:bg-white/10 active:scale-95" aria-label="חיפוש מוצרים">
         <SearchIcon />
       </button>
       {open && <SearchOverlay onClose={() => setOpen(false)} />}

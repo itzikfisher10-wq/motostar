@@ -34,8 +34,8 @@ export function MobileNav({ categories }: { categories: CategoryNode[] }) {
           <div className="absolute inset-0 bg-ink/60 animate-fade-in" onClick={() => setOpen(false)} aria-hidden="true" />
           <nav aria-label="ניווט באתר" className="absolute inset-y-0 right-0 flex w-[88%] max-w-sm flex-col overflow-y-auto bg-ink text-paper">
             <div className="flex items-center justify-between border-b border-line-dark px-4 py-3">
-              <span className="font-display text-[1.75rem]">תפריט</span>
-              <button ref={closeRef} type="button" onClick={() => setOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-graphite" aria-label="סגירת התפריט">
+              <span className="text-xl font-black">תפריט</span>
+              <button ref={closeRef} type="button" onClick={() => setOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full transition-[background-color,transform] duration-150 hover:bg-white/10 active:scale-95" aria-label="סגירת התפריט">
                 <CloseIcon />
               </button>
             </div>
@@ -74,10 +74,10 @@ export function MobileNav({ categories }: { categories: CategoryNode[] }) {
               </li>
             </ul>
             <div className="mt-auto grid grid-cols-2 gap-2 border-t border-line-dark p-4">
-              <a href={`tel:${site.phoneE164}`} className="flex h-12 items-center justify-center gap-2 rounded-md bg-graphite">
+              <a href={`tel:${site.phoneE164}`} className="glass-dark flex h-12 items-center justify-center gap-2 rounded-full font-bold active:scale-[0.97]">
                 <PhoneIcon size={18} /> חיוג
               </a>
-              <a href={whatsappLink("היי, הגעתי מהאתר של Moto Star")} target="_blank" rel="noopener noreferrer" className="flex h-12 items-center justify-center gap-2 rounded-md bg-graphite">
+              <a href={whatsappLink("היי, הגעתי מהאתר של Moto Star")} target="_blank" rel="noopener noreferrer" className="glass-dark flex h-12 items-center justify-center gap-2 rounded-full font-bold active:scale-[0.97]">
                 <WhatsappIcon size={18} /> וואטסאפ
               </a>
             </div>

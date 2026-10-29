@@ -10,7 +10,7 @@ export function CartButton() {
     <button
       type="button"
       onClick={() => setOpen(true)}
-      className="relative flex h-11 w-11 items-center justify-center rounded-full hover:bg-graphite"
+      className="relative flex h-11 w-11 items-center justify-center rounded-full transition-[background-color,transform] duration-150 hover:bg-white/10 active:scale-95"
       aria-label={count ? `סל הקניות, ${count} פריטים` : "סל הקניות, ריק"}
     >
       <BagIcon />

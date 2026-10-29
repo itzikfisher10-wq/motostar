@@ -1,142 +1,98 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { buttonClass } from "@/components/ui/Button";
-import { reveal } from "@/components/motion/reveal";
-import type { HelmetScene } from "./scene";
+import { WhatsappIcon } from "@/components/ui/icons";
+import { HelmetStage } from "./HelmetStage";
+import { RotatingPhrase } from "./RotatingPhrase";
+
+export type TrustItem = { icon: ReactNode; title: string; note: string };
 
 type Props = {
+  badge: string;
   title: string;
+  phrases: readonly string[];
   body: string;
   primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  dealsCta: { label: string; href: string } | null;
+  araiCta: { label: string; href: string };
+  whatsapp: { label: string; href: string };
+  trust: TrustItem[];
   illustrationNote: string;
 };
 
 /**
- * Home hero with the 3D helmet. The text is server-rendered and painted first (it is the
- * page's LCP); three.js loads afterwards, when the browser is idle, and fades the helmet in.
- * Scrolling through the section turns the helmet and opens its visor; the stage is pinned
- * with CSS `position: sticky` (no scroll-jacking). Reduced motion: a still helmet.
- * No WebGL or a software renderer: the hero is text only (nothing is lost but the picture).
+ * Home hero.
+ * - The text is server-rendered and painted first (it is the page's LCP); three.js loads when the
+ *   browser is idle and fades the 3D helmet in. Scrolling turns the helmet and opens its visor.
+ * - Desktop: the stage is pinned (CSS sticky). As the next section slides up over it like a sheet,
+ *   the stage recedes: it scales back, rounds its corners and dims (motion.css → "Home hero").
+ *   A scroll listener only writes one number, --p (0..1), on the section; CSS does the rest.
+ * - Glass trust cards float over the stage. Every line on them is a fact from src/config/site.ts.
+ * - Reduced motion / no JS: nothing pins, nothing moves, everything is shown.
+ * - No WebGL, or a software renderer: the still frame of the helmet stays.
  */
-/**
- * WebGL with a real GPU. Software renderers (SwiftShader, llvmpipe) draw every frame on the
- * CPU and would make the page janky, so there the hero stays text-only.
- * `?3d=force` overrides this (for testing in headless browsers).
- */
-function hasHardwareWebGL() {
-  const probe = document.createElement("canvas");
-  const gl = (probe.getContext("webgl2") ?? probe.getContext("webgl")) as WebGLRenderingContext | null;
-  if (!gl) return false;
-  if (new URLSearchParams(window.location.search).get("3d") === "force") return true;
-  const info = gl.getExtension("WEBGL_debug_renderer_info");
-  const renderer = info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : "";
-  gl.getExtension("WEBGL_lose_context")?.loseContext();
-  return !/swiftshader|llvmpipe|softpipe|software/i.test(renderer);
-}
-
-export function HelmetHero({ title, body, primaryCta, secondaryCta, illustrationNote }: Props) {
-  const section = useRef<HTMLElement>(null);
-  const canvas = useRef<HTMLCanvasElement>(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const el = section.current;
-    const c = canvas.current;
-    if (!el || !c) return;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const lowPower = window.matchMedia("(max-width: 767px)").matches || (navigator.hardwareConcurrency ?? 8) <= 4;
-    let scene: HelmetScene | null = null;
-    let disposed = false;
-    const cleanups: (() => void)[] = [];
-
-    const start = async () => {
-      // WebGL unavailable (old device, blocked): the hero simply stays text-only.
-      if (!hasHardwareWebGL()) return;
-      const { createHelmetScene } = await import("./scene");
-      if (disposed) return;
-      scene = createHelmetScene(c, { reducedMotion, lowPower });
-      setReady(true);
-
-      const onScroll = () => {
-        const r = el.getBoundingClientRect();
-        const travel = Math.max(1, r.height - window.innerHeight);
-        scene?.setProgress(-r.top / travel);
-      };
-      const onResize = () => scene?.resize();
-      const onPointer = (e: PointerEvent) => scene?.setPointer((e.clientX / window.innerWidth) * 2 - 1, (e.clientY / window.innerHeight) * 2 - 1);
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onResize);
-      if (!lowPower) window.addEventListener("pointermove", onPointer, { passive: true });
-      onScroll();
-      // Stop rendering while the hero is off screen.
-      const io = new IntersectionObserver(([entry]) => (entry?.isIntersecting ? scene?.resume() : scene?.pause()));
-      io.observe(el);
-      cleanups.push(() => {
-        window.removeEventListener("scroll", onScroll);
-        window.removeEventListener("resize", onResize);
-        window.removeEventListener("pointermove", onPointer);
-        io.disconnect();
-      });
-    };
-
-    // Wait until the page has painted and the main thread is free.
-    const idle = (cb: () => void) => (typeof window.requestIdleCallback === "function" ? window.requestIdleCallback(cb, { timeout: 2500 }) : globalThis.setTimeout(cb, 1200));
-    const kick = () => idle(() => void start());
-    if (document.readyState === "complete") kick();
-    else window.addEventListener("load", kick, { once: true });
-
-    return () => {
-      disposed = true;
-      window.removeEventListener("load", kick);
-      cleanups.forEach((f) => f());
-      scene?.dispose();
-    };
-  }, []);
-
+export function HelmetHero({ badge, title, phrases, body, primaryCta, dealsCta, araiCta, whatsapp, trust, illustrationNote }: Props) {
   return (
-    <section ref={section} {...reveal.depthScope} aria-labelledby="home-hero-title" className="relative bg-ink text-paper motion-safe:h-[150svh] lg:motion-safe:h-[190svh]">
-      <div className="sticky top-[var(--header-h,6rem)] isolate overflow-hidden">
-        {/* One key light from above-left; the helmet sits in it. */}
-        <div aria-hidden="true" {...reveal.depthLight} className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_60%_at_28%_42%,#2a2c30_0%,#0d0d0e_55%,#000_100%)]" />
-        <div className="mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1400px] items-center gap-4 px-4 pb-10 pt-8 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:px-10">
-          <div {...reveal.depthCopy} className="relative z-10 order-2 lg:order-1">
-            <h1 id="home-hero-title" className="font-display text-display-xl motion-safe:animate-[hero-settle_1100ms_var(--ease-out-quart)_both]">
-              {title}
+    <section data-home-hero aria-labelledby="home-hero-title" className="relative -mt-[var(--header-h)] bg-ink text-paper">
+      <div data-home-hero-stage className="relative isolate overflow-hidden bg-ink">
+        {/* Light: one key light from above the helmet, a low red glow from the floor. */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_30%_40%,#26282c_0%,#0d0d0e_58%,#050505_100%)]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 start-1/4 -z-10 h-[28rem] w-[60rem] max-w-full rounded-full bg-[radial-gradient(closest-side,rgb(225_18_26/0.2),rgb(225_18_26/0.06)_55%,transparent)]" />
+
+        <div className="mx-auto grid h-full max-w-[1400px] items-center gap-6 px-4 pb-8 pt-[calc(var(--header-h)+1rem)] sm:px-6 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-4 lg:px-10 lg:pb-40 lg:pt-[calc(var(--header-h)+2rem)]">
+          <div data-home-hero-copy className="relative z-10 order-2 text-center lg:order-1 lg:text-start">
+            <p className="glass-dark inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[0.8rem] font-bold">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-signal" />
+              {badge}
+            </p>
+            <h1 id="home-hero-title" className="mt-5 text-[clamp(2.5rem,1.6rem+4vw,4.75rem)] font-black leading-[1.02] tracking-[-0.025em]">
+              <span className="block">{title}</span>
+              <RotatingPhrase phrases={phrases} />
             </h1>
-            <p className="mt-6 max-w-[38ch] text-lg leading-relaxed text-fog">{body}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link href={primaryCta.href} className={buttonClass("primary", "lg")}>
+            <p className="mx-auto mt-5 max-w-[46ch] text-base leading-relaxed text-white/75 sm:text-lg lg:mx-0">{body}</p>
+            <div className="mt-8 flex flex-wrap justify-center gap-2.5 lg:justify-start">
+              <Link href={primaryCta.href} className={buttonClass("primary", "lg", "w-full sm:w-auto")}>
                 {primaryCta.label}
               </Link>
-              <Link href={secondaryCta.href} className={buttonClass("outline", "lg", "border-line-dark text-paper hover:border-paper hover:bg-paper hover:text-ink")}>
-                {secondaryCta.label}
-              </Link>
+              <a href={whatsapp.href} target="_blank" rel="noopener noreferrer" className={buttonClass("glass", "lg")}>
+                <WhatsappIcon size={20} />
+                {whatsapp.label}
+              </a>
+              {/* Phones keep two buttons; the rest are one tap away in the menu. */}
+              <span className="hidden sm:contents">
+                {dealsCta && (
+                  <Link href={dealsCta.href} className={buttonClass("glass", "lg")}>
+                    {dealsCta.label}
+                  </Link>
+                )}
+              </span>
+              <span className="hidden xl:contents">
+                <Link href={araiCta.href} className={buttonClass("glass", "lg")}>
+                  {araiCta.label}
+                </Link>
+              </span>
             </div>
           </div>
-          <figure className="relative order-1 m-0 lg:order-2">
-            {/* Still frame of the same 3D helmet: shown until (or instead of) the live one. */}
-            <Image
-              src="/images/hero-helmet.webp"
-              alt=""
-              aria-hidden="true"
-              width={1260}
-              height={1260}
-              priority
-              sizes="(min-width: 1024px) 78svh, 46svh"
-              className={`pointer-events-none absolute inset-x-0 top-0 mx-auto aspect-square w-full max-h-[46svh] max-w-[46svh] object-contain transition-opacity duration-1000 lg:max-h-[78svh] lg:max-w-[78svh] ${ready ? "opacity-0" : "opacity-100"}`}
-            />
-            <canvas
-              ref={canvas}
-              aria-hidden="true"
-              className={`mx-auto block aspect-square w-full max-h-[46svh] max-w-[46svh] transition-opacity duration-1000 lg:max-h-[78svh] lg:max-w-[78svh] ${ready ? "opacity-100" : "opacity-0"}`}
-            />
-            <figcaption className="absolute bottom-1 start-0 text-xs text-steel">{illustrationNote}</figcaption>
-          </figure>
+
+          <HelmetStage note={illustrationNote} />
         </div>
+
+        {/* Facts, on glass. Phones and tablets: two by two under the buttons. */}
+        <ul data-home-hero-trust className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-2 gap-2 px-4 pb-10 sm:px-6 md:grid-cols-4 lg:absolute lg:inset-x-0 lg:bottom-14 lg:gap-3 lg:px-10 lg:pb-0">
+          {trust.map((t) => (
+            <li key={t.title} className="glass-dark flex items-center gap-2.5 rounded-2xl px-3 py-3 text-start sm:gap-3 sm:px-3.5">
+              <span aria-hidden="true" className="hidden h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-signal-bright sm:grid">
+                {t.icon}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[0.82rem] font-black leading-tight sm:text-sm">{t.title}</span>
+                <span className="mt-0.5 block text-[0.74rem] leading-tight text-white/65 sm:text-[0.78rem]">{t.note}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        {/* Dims the stage as the next section covers it (desktop, motion only). */}
+        <div data-home-hero-dim aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 bg-black opacity-0" />
       </div>
     </section>
   );

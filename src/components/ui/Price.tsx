@@ -19,7 +19,7 @@ export function Price({ price, compareAt, from, size = "md", className = "", ton
   return (
     <p className={`flex flex-wrap items-baseline gap-x-2 tabular ${className}`}>
       {from && <span className={`text-sm ${muted}`}>החל מ-</span>}
-      <span className={`${sizes[size]} font-semibold ${off ? (tone === "dark" ? "text-signal-bright" : "text-signal-deep") : ""}`}>{formatPrice(price)}</span>
+      <span className={`${sizes[size]} font-black ${off ? (tone === "dark" ? "text-signal-bright" : "text-signal-deep") : ""}`}>{formatPrice(price)}</span>
       {off && (
         <>
           <span className={`text-sm ${muted} line-through decoration-1`}>
